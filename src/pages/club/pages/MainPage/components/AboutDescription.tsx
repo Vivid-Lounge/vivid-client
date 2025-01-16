@@ -1,39 +1,73 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Stack, Typography } from '@mui/material'
-import Background from './../../../../../shared/images/about-us-photo.png'
+import Background from './../../../../../shared/images/about-us-photo2.png'
 
 const AboutDescription: React.FC = () => {
-  return (
-    <Stack
-        sx={{
-            aspectRatio: '1.13 / 1',
-            width: '100%',
-            height: 'auto',
-            background: `url(${Background})`,
-            justifyContent: 'flex-end',
-            backgroundPosition: 'center',
-            backgroundSize: 'cover'
-        }}
-    >
-        <Typography
-            sx={{
-                width: '100%',
-                padding: '1rem',
-                background: '#1D1D1D',
-                color: 'white',
-                fontWeight: 'regular',
-                transform: 'translate(20%, 20%)',
-                // backdropFilter: 'blur(1px)'
-                display: {
-                    xs: 'none',
-                    md: 'flex'
-                }
-            }}
-        >
-            Suntem locul unde muzica de calitate și designul inovativ se întâlnesc pentru a oferi o experiență de petrecere absolută. Fie că ești un iubitor al petrecerilor electrizante sau pur și simplu vrei să te bucuri de o seară memorabilă alături de prieteni, Vivid este locul unde distracția nu are limite.
-        </Typography>
-    </Stack>
-  )
+	const [isVisible, setIsVisible] = useState(false)
+	const sectionRef = useRef(null)
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setIsVisible(entry.isIntersecting)
+			},
+			{ threshold: 0.2 }
+		)
+
+		if (sectionRef.current) {
+			observer.observe(sectionRef.current)
+		}
+
+		return () => observer.disconnect()
+	}, [])
+
+	return (
+		<Stack
+			ref={sectionRef}
+			sx={{
+				width: '100%',
+				gap: '16px',
+			}}
+		>
+			<Stack
+				sx={{
+					aspectRatio: '1.13 / 1',
+					width: '100%',
+					height: 'auto',
+					background: `url(${Background})`,
+					justifyContent: 'flex-end',
+					backgroundPosition: 'center',
+					backgroundSize: 'cover',
+					opacity: isVisible ? 1 : 0,
+					transform: isVisible
+						? 'translateX(0)'
+						: 'translateX(-100px)',
+					transition: 'all .9s ease-out',
+				}}
+			>
+				<Typography
+					sx={{
+						padding: '16px',
+						backgroundColor: 'rgb(46, 46, 46)',
+						color: 'white',
+						opacity: isVisible ? 1 : 0,
+
+						transform: isVisible
+							? 'translate(50px,25px)'
+							: 'translateX(50px)',
+						transition: 'all 1s ease-out',
+						transitionDelay: '0.2s',
+					}}
+				>
+					Suntem locul unde muzica de calitate și designul inovativ se
+					întâlnesc pentru a oferi o experiență de petrecere absolută.
+					Fie că ești un iubitor al petrecerilor electrizante sau pur
+					și simplu vrei să te bucuri de o seară memorabilă alături de
+					prieteni, Vivid este locul unde distracția nu are limite.
+				</Typography>
+			</Stack>
+		</Stack>
+	)
 }
 
 export default AboutDescription

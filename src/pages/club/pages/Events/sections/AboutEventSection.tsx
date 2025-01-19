@@ -1,92 +1,129 @@
-import React from "react";
-import { Grid2, Stack, Typography } from "@mui/material";
+import React from 'react'
+import { Box, Grid2, Stack, Typography } from '@mui/material'
 import {
-  DateIcon,
-  ScheduleIcon,
-  EventTypeIcon,
-} from "../../../../../shared/icons";
-import EventsFeature from "../components/EventsFeature";
-import { Event } from "../../../../../shared/types/EventType";
-import { GradientButton } from "../../../components";
-
+	DateIcon,
+	ScheduleIcon,
+	EventTypeIcon,
+} from '../../../../../shared/icons'
+import EventsFeature from '../components/EventsFeature'
+import { Event } from '../../../../../shared/types'
+import { GradientButton } from '../../../components'
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 interface Props {
-  event: Event;
+	event: Event
 }
 
 const AboutEventSection: React.FC<Props> = ({ event }) => {
-  return (
-    <Grid2
-        container
-        sx={{
-            flexDirection: 'row',
-            width: '100vw',
-            alignItems: 'flex-start',
-            justifyContent: 'center'
-        }}
-    >
-      <Grid2
-        container
-        size={{xs: 12, md: 6}}
-        sx={{
-            flexDirection: 'column'
-        }}
-      >
-        <Typography
-          color="white"
-          textTransform={"uppercase"}
-          fontSize={"1.5rem"}
-        >
-          About event
-        </Typography>
-        <Typography sx={{
-            color: 'white',
-            fontWeight: 'normal'
-        }}>
-            {event.description}
-        </Typography>
-      </Grid2>
-      <Grid2
-        container
-        size={{xs: 12, md: 4}}
-        sx={{
-          background: "#1C1C1C",
-          padding: "1rem",
-          gap: "1rem",
-          flexDirection: 'column'
-        }}
-      >
-        <Typography
-          color="white"
-          textTransform={"uppercase"}
-          fontSize={"1.25rem"}
-        >
-          About event
-        </Typography>
-        <Stack
-          sx={{
-            gap: "1rem",
-          }}
-        >
-          <EventsFeature
-            featureIcon={<ScheduleIcon />}
-            featureTitle="SCHEDULE"
-            featureDescription={event.schedule}
-          />
-          <EventsFeature
-            featureIcon={<EventTypeIcon />}
-            featureTitle="event type"
-            featureDescription={event.type}
-          />
-          <EventsFeature
-            featureIcon={<DateIcon />}
-            featureTitle="date"
-            featureDescription={event.date}
-          />
-        </Stack>
-        <GradientButton marginTop={"2rem"}>Buy Tickets</GradientButton>
-      </Grid2>
-    </Grid2>
-  );
-};
+	return (
+		<Grid2
+			container
+			sx={{
+				flexDirection: 'row',
+				width: '100%',
+				height: '70%',
+				justifyContent: 'center',
+				alignItems: 'center',
+			}}
+		>
+			<Grid2
+				container
+				size={{ xs: 12, md: 6 }}
+				sx={{
+					width: '100%',
+					height: '100%',
+					flexDirection: 'column',
+				}}
+			>
+				<Box
+					id='poster-image'
+					sx={{
+						background: `url("${event.posterImage}")`,
+						backgroundSize: 'cover',
+						backgroundPosition: 'center',
+						width: '100%',
+						height: '100%',
+						minWidth: '50%',
+						maxWidth: '60%',
 
-export default AboutEventSection;
+						position: 'relative',
+					}}
+				></Box>
+			</Grid2>
+			<Grid2
+				container
+				size={{ xs: 12, md: 4 }}
+				sx={{
+					height: '100%',
+					alignItems: 'space-between',
+					flexDirection: 'row',
+				}}
+			>
+				<Grid2
+					size={{ xs: 6 }}
+					sx={{
+						width: '100%',
+					}}
+				>
+					<Stack
+						sx={{
+							width: '100%',
+						}}
+					>
+						<Typography
+							sx={{
+								color: 'white',
+								fontSize: 'clamp(16px, 2vw, 18px)',
+							}}
+						>
+							{event.description}
+						</Typography>
+					</Stack>
+				</Grid2>
+				<Grid2
+					size={{ xs: 6 }}
+					sx={{
+						// background: '#1C1C1C',
+						mt: 'auto',
+						padding: '1rem',
+						gap: '2rem',
+						width: '100%',
+					}}
+				>
+					<Typography
+						color='white'
+						textTransform={'uppercase'}
+						fontSize={'1.25rem'}
+						sx={{
+							mb: 3,
+						}}
+					>
+						About event
+					</Typography>
+					<Stack
+						sx={{
+							gap: '1rem',
+						}}
+					>
+						<EventsFeature
+							featureIcon={<DateIcon />}
+							featureTitle='date'
+							featureDescription={new Date(
+								event.date ?? ''
+							).toDateString()}
+						/>
+						<EventsFeature
+							featureIcon={<LocalPhoneIcon />}
+							featureTitle='RSVP'
+							featureDescription={event.phone}
+						/>
+					</Stack>
+					<GradientButton marginTop={'2rem'}>
+						Buy Tickets
+					</GradientButton>
+				</Grid2>
+			</Grid2>
+		</Grid2>
+	)
+}
+
+export default AboutEventSection

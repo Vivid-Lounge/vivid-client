@@ -3,8 +3,8 @@ import EventCard from './EventCard'
 import { UpcomingEventsIcon } from '../../../../../shared/icons'
 import Button from '../../../components/Button'
 import { Typography, Stack, Box } from '@mui/material'
-import { events } from '../../Events/events/events'
-
+import { Event } from '../../../../../shared/types'
+import { api, API_URI } from '../../../../../shared/api_routes'
 interface Props {
 	mainPage?: boolean | undefined
 }
@@ -12,7 +12,27 @@ interface Props {
 const EventContent: React.FC<Props> = ({ mainPage = true }) => {
 	const [currentEventIndex, setCurrentEventIndex] = useState(0)
 	const [isAnimating, setIsAnimating] = useState(false)
-
+	const [events, setEvents] = useState<Event[]>([] as Event[])
+	const getEvents = async () => {
+		const response = await fetch(API_URI + api.getEvents.route, {
+			method: api.getEvents.method,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+		if (response.status === 200) {
+			const data = await response.json()
+			setEvents(data)
+		} else {
+			setEvents([])
+		}
+	}
+	console.log(events)
+	useEffect(() => {
+		if (!events.length) {
+			getEvents()
+		}
+	}, [])
 	const handlePrevSlide = () => {
 		if (isAnimating) return
 		setIsAnimating(true)

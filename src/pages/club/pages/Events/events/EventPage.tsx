@@ -1,32 +1,78 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { events } from "./events";
-import { Grid2, Typography, Stack } from "@mui/material";
-import { EventHeroSection } from "../sections";
-import AboutEventSection from "../sections/AboutEventSection";
-
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { events } from './events'
+import { Grid2, Typography, Stack, Box } from '@mui/material'
+import { EventHeroSection } from '../sections'
+import AboutEventSection from '../sections/AboutEventSection'
+import { Event } from '../../../../../shared/types'
+import { API_URI, api } from '../../../../../shared/api_routes'
 const EventPage: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const event = events.find((e) => e.slug === slug);
+	const { slug } = useParams<{ slug: string }>()
+	console.log(slug)
+	const [event, setEvent] = React.useState<Event>({} as Event)
+	const retrieveEvent = async () => {
+		const response = await fetch(API_URI + api.getEvent.route + `${slug}`, {
+			method: api.getEvent.method,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+		if (response.status === 200) {
+			const data = await response.json()
+			setEvent(data)
+		} else {
+			setEvent({} as Event)
+		}
+	}
+	useEffect(() => {
+		retrieveEvent()
+		console.log(event)
+	}, [])
+	console.log(event)
+	if (!event) {
+		return <h3>Event not found</h3>
+	}
 
-  if (!event) {
-    return <h3>Event not found</h3>;
-  }
+	return (
+		<Grid2
+			container
+			sx={{
+				width: '100vw',
+				height: '100vh',
+				justifyContent: 'center',
+				alignItems: 'center',
+			}}
+		>
+			<Box
+				sx={{
+					width: '100%',
+					height: '100%',
+					zIndex: -1,
+					opacity: 0.5,
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					background: `url("${event.coverImage}")`,
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover',
+				}}
+			></Box>
+			<Box
+				sx={{
+					width: '100%',
+					height: '100%',
+					border: '1px solid black',
+					display: 'flex',
+					position: 'relative',
+					justifyContent: 'center',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}
+			>
+				<AboutEventSection event={event} />
+			</Box>
+		</Grid2>
+	)
+}
 
-  return (
-    <Grid2
-      container
-      sx={{
-        width: '100vw',
-        minHeight: '100vh',
-        alignItems: 'flex-start',
-        justifyContent: 'center'
-      }}
-    >
-      <EventHeroSection event={event}/>
-      <AboutEventSection event={event}/>
-    </Grid2>
-  );
-};
-
-export default EventPage;
+export default EventPage

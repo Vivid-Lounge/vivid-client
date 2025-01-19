@@ -3,14 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Stack, Typography } from '@mui/material'
 import { ArrowIcon } from '../../../../../shared/icons'
 import Button from '../../../components/Button'
-
-interface Event {
-	image: string
-	date: string
-	artist: string
-	dj: string
-	slug: string
-}
+import { Event } from '../../../../../shared/types'
 
 interface Props {
 	event: Event
@@ -52,7 +45,7 @@ const EventCard: React.FC<Props> = ({ event, onPrevClick, onNextClick }) => {
 					width: '100%',
 					height: 'auto',
 					aspectRatio: '1 / 0.3',
-					background: `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url(${event.image})`,
+					background: `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url("${event.coverImage}")`,
 					padding: '1rem',
 					justifyContent: 'space-between',
 					position: 'relative',
@@ -76,9 +69,9 @@ const EventCard: React.FC<Props> = ({ event, onPrevClick, onNextClick }) => {
 							fontWeight: '400',
 						}}
 					>
-						{event.date}
+						{new Date(event.date ?? '').toDateString()}
 					</Typography>
-					<Typography
+					{/* <Typography
 						sx={{
 							fontSize: 'clamp(24px, 4vw, 48px)',
 							fontWeight: '800',
@@ -93,7 +86,7 @@ const EventCard: React.FC<Props> = ({ event, onPrevClick, onNextClick }) => {
 						}}
 					>
 						{event.dj}
-					</Typography>
+					</Typography> */}
 				</Stack>
 				<Button
 					sx={{

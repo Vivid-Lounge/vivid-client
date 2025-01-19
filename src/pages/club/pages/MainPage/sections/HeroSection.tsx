@@ -1,6 +1,5 @@
 import React from 'react'
 import { Grid2, Typography } from '@mui/material'
-import NavBar from '../../../components/NavBar'
 import Background from './../../../../../shared/images/hero-section-background.png'
 import { VividLogoIcon } from '../../../../../shared/icons'
 import Button from '../../../components/Button'
@@ -39,7 +38,6 @@ const HeroSection: React.FC = () => {
 					gap: '2rem',
 				}}
 			>
-				<NavBar />
 				<VividLogoIcon
 					sx={{
 						// width: {

@@ -4,10 +4,17 @@ import SectionTitle from '../../../components/SectionTitle'
 import AboutDescription from '../components/AboutDescription'
 import Background from './../../../../../shared/images/about-us-photo2.png'
 import Button from '../../../components/Button'
+import { useNavigate } from 'react-router-dom'
 
 const AboutUsSection: React.FC = () => {
 	const [isVisible, setIsVisible] = useState(false)
 	const sectionRef = useRef(null)
+
+	const navigate = useNavigate()
+
+	const handleViewMore = () => {
+		navigate('/about')
+	}
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -123,7 +130,10 @@ const AboutUsSection: React.FC = () => {
 					}}
 				>
 					<AboutDescription />
-					<Button sx={{ width: '100%', alignItems: 'center' }}>
+					<Button
+						sx={{ width: '100%', alignItems: 'center' }}
+						onClick = {handleViewMore}
+					>
 						<Typography fontWeight={'regular'} fontSize={'1.5rem'}>
 							MORE INFO ABOUT US
 						</Typography>

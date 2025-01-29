@@ -1,14 +1,26 @@
 import React, { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import DefaultLayout from '../../../defaultLayout/DefaultLayout'
 import { Stack, Typography } from '@mui/material'
 import { GalleryTitleIcon } from '../../../../../shared/icons'
 import Background from './../../../../../shared/images/about-us-photo.png'
-import Background2 from './../../../../../shared/images/about-us-photo2.png'
+// import Background2 from './../../../../../shared/images/about-us-photo2.png'
+import Gallery from '../components/Gallery'
+import Photos from './PhotoTest'
+import { Button } from '../../../components'
 
 const GallerySection: React.FC = () => {
 	const sectionRef = useRef(null)
 
 	const [isVisible, setIsVisible] = React.useState(false)
+	const [isGallery, setIsGallery] = React.useState(false)
+	const visibleCount = 1
+
+	const navigate = useNavigate()
+	
+	const handleNavigate = () => {
+		navigate('/gallery')
+	}
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -72,7 +84,7 @@ const GallerySection: React.FC = () => {
 					}}
 				/>
 			</Stack>
-			<Stack
+			{/* <Stack
 				ref={sectionRef}
 				sx={{
 					width: '100%',
@@ -122,7 +134,15 @@ const GallerySection: React.FC = () => {
 						transition: 'all .9s ease-out',
 					}}
 				></Stack>
-			</Stack>
+			</Stack> */}
+			{Photos.slice(0, isGallery ? Photos.length : visibleCount).map((photo, index) => (
+                <Gallery images={photo} key={index} />
+            ))}
+			{!isGallery && (
+                <Button onClick={handleNavigate}>
+                	<Typography>View More</Typography>
+                </Button>
+            )}
 		</DefaultLayout>
 	)
 }

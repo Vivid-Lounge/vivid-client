@@ -12,6 +12,7 @@ import VisitOurClub from "./VisitOurClub";
 import EventTypeIcon from "./EventTypeIcon";
 import ScheduleIcon from "./ScheduleIcon";
 import DateIcon from "./DateIcon";
+import CloseIcon from "./CloseIcon";
 
 export {
   EventTypeIcon,
@@ -27,5 +28,6 @@ export {
   QuoteMark,
   VisitOurClub,
   ScheduleIcon,
-  DateIcon
+  DateIcon,
+  CloseIcon
 };

@@ -1,0 +1,77 @@
+import React, { useEffect, useState } from "react";
+import { Stack } from "@mui/material";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+
+interface Props {
+  mapDisplay?: boolean;
+  placeId: string; // ID-ul locației
+}
+
+const GoogleMaps: React.FC<Props> = ({ mapDisplay = false, placeId }) => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyAKIU-B44IktnFv2eJTRzj3Gw4R_a9b_tM", // Cheia API corectă
+    libraries: ["places"],
+  });
+
+  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
+
+  useEffect(() => {
+    if (!isLoaded || !placeId) return;
+
+    const service = new google.maps.places.PlacesService(document.createElement("div"));
+
+    service.getDetails(
+      {
+        placeId: placeId,
+        fields: ["geometry"], // Obține coordonatele locației
+      },
+      (place, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && place?.geometry?.location) {
+          const newLocation = {
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng(),
+          };
+          console.log("Location set:", newLocation); // Verifică locația
+          setLocation(newLocation);
+        } else {
+          console.error("Error fetching place details:", status);
+        }
+      }
+    );
+  }, [isLoaded, placeId]);
+
+  if (!isLoaded) return <div>Loading...</div>;
+
+  return (
+    <Stack
+      sx={{
+        position: "fixed",
+        height: mapDisplay ? "100dvh" : "0%",
+        width: mapDisplay ? "100vw" : "0%",
+        overflow: "hidden",
+        alignItems: "center",
+        justifyContent: "center",
+        transition: "all 0.2s ease-in-out",
+      }}
+    >
+      {location && (
+        <GoogleMap
+          mapContainerStyle={{ width: "80%", height: "80%" }}
+          center={location}
+          zoom={19}
+        >
+          {/* Marker simplu, fără personalizare */}
+          <Marker
+            position={location}
+            icon={{
+              url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png", // URL pentru un pin personalizat (opțional)
+              scaledSize: new google.maps.Size(1000, 1000), // Dimensiunea pin-ului
+            }}
+          />
+        </GoogleMap>
+      )}
+    </Stack>
+  );
+};
+
+export default GoogleMaps;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid2, Stack, Typography } from '@mui/material'
 import Background from './../../../../shared/images/hero-section-background.png'
+import Map from './components/MapModal'
 
 const About: React.FC = () => {
     return (
@@ -26,11 +27,13 @@ const About: React.FC = () => {
                 sx={{
                     height: '100%',
                     position: 'relative',
-                    // background: 'blue'
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}
             >
                 <Typography color={'white'}>Test</Typography>
             </Grid2>
+            <Map />
         </Grid2>
     )
 }

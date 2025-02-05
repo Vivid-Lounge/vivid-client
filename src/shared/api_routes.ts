@@ -1,4 +1,4 @@
-export const API_URI = 'http://192.168.54.101:4000/api'
+export const API_URI = 'http://192.168.54.101:3000/api'
 export const apiRoutes = {
 	events: [
 		{

@@ -20,7 +20,11 @@ const About: React.FC = () => {
                 background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${Background})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
+                padding: {
+                    xs: '16px',
+                    md: '16px 0'
+                }
 
             }}
         >

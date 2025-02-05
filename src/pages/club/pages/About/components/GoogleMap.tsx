@@ -53,6 +53,10 @@ const GoogleMaps: React.FC<Props> = ({ mapDisplay = false, placeId }) => {
         alignItems: "center",
         justifyContent: "center",
         transition: "all 0.2s ease-in-out",
+        padding: {
+          xs: '16px',
+          md: '16px 0'
+      }
       }}
     >
       <Grid2

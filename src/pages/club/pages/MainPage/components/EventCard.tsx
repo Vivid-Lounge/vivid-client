@@ -4,6 +4,7 @@ import { Stack, Typography } from '@mui/material'
 import { ArrowIcon } from '../../../../../shared/icons'
 import Button from '../../../components/Button'
 import { Event } from '../../../../../shared/types'
+import { SERVE_IMAGES_URI } from '../../../../../shared/api_routes'
 
 interface Props {
 	event: Event
@@ -45,7 +46,7 @@ const EventCard: React.FC<Props> = ({ event, onPrevClick, onNextClick }) => {
 					width: '100%',
 					height: 'auto',
 					aspectRatio: '1 / 0.3',
-					background: `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url("${event.coverImage}")`,
+					background: `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url("${SERVE_IMAGES_URI}${event.coverImage}")`,
 					padding: '1rem',
 					justifyContent: 'space-between',
 					position: 'relative',

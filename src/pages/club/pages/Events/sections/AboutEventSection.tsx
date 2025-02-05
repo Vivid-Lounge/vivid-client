@@ -9,6 +9,7 @@ import EventsFeature from '../components/EventsFeature'
 import { Event } from '../../../../../shared/types'
 import { GradientButton } from '../../../components'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
+import { SERVE_IMAGES_URI } from '../../../../../shared/api_routes'
 interface Props {
 	event: Event
 }
@@ -37,7 +38,7 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 				<Box
 					id='poster-image'
 					sx={{
-						background: `url("${event.posterImage}")`,
+						background: `url("${SERVE_IMAGES_URI}${event.posterImage}")`,
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
 						width: '100%',
@@ -67,8 +68,21 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 					<Stack
 						sx={{
 							width: '100%',
+							textWrap: 'wrap',
+							flexWrap: 'wrap',
+							lineBreak: 'anywhere',
+							height: '100%',
 						}}
 					>
+						<Typography
+							variant={'h2'}
+							sx={{
+								color: 'white',
+								mb: 2,
+							}}
+						>
+							{event.title}
+						</Typography>
 						<Typography
 							sx={{
 								color: 'white',

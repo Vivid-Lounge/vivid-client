@@ -1,4 +1,5 @@
-export const API_URI = 'http://192.168.54.101:3000/api'
+export const API_URI = import.meta.env.VITE_API_URI as string
+export const SERVE_IMAGES_URI = import.meta.env.VITE_SERVE_IMAGES_URI as string
 export const apiRoutes = {
 	events: [
 		{

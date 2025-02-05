@@ -5,7 +5,11 @@ import { Grid2, Typography, Stack, Box } from '@mui/material'
 import { EventHeroSection } from '../sections'
 import AboutEventSection from '../sections/AboutEventSection'
 import { Event } from '../../../../../shared/types'
-import { API_URI, api } from '../../../../../shared/api_routes'
+import {
+	API_URI,
+	SERVE_IMAGES_URI,
+	api,
+} from '../../../../../shared/api_routes'
 const EventPage: React.FC = () => {
 	const { slug } = useParams<{ slug: string }>()
 	console.log(slug)
@@ -52,7 +56,7 @@ const EventPage: React.FC = () => {
 					position: 'absolute',
 					top: 0,
 					left: 0,
-					background: `url("${event.coverImage}")`,
+					background: `url("${SERVE_IMAGES_URI}${event.coverImage}")`,
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 				}}

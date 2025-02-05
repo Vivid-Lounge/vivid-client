@@ -87,6 +87,9 @@ const TestimonialSection: React.FC = () => {
 						backgroundSize: 'cover',
 					}}
 				/>
+				<Stack>
+				<QuoteMark sx={{ width: '3rem', height: 'auto' }} />
+
 				<Typography
 					ref={textRef}
 					sx={{
@@ -106,34 +109,15 @@ const TestimonialSection: React.FC = () => {
 						transition: ' 1s ease-out',
 					}}
 				>
-					<QuoteMark sx={{ width: '6rem', height: 'auto' }} />
-					<Divider
-						sx={{
-							borderColor: '#1d1d1d',
-							borderWidth: '0px',
-							borderRadius: '20px',
-						}}
-					/>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 					do eiusmod tempor incididunt ut labore et dolore magna
 					aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 					ullamco laboris nisi ut aliquip ex ea commodo consequat.
 					Duis aute irure dolor in reprehenderit in voluptate velit
 					esse cillum dolore eu fugiat nulla pariatur.”
-					<Divider
-						sx={{
-							borderColor: '#1d1d1d',
-							borderWidth: '10px',
-							borderRadius: '20px',
-						}}
-					/>
-					<Andor sx={{ width: '15rem', height: 'auto' }} />
-					<Divider
-						sx={{
-							borderColor: '#1d1d1d',
-							borderWidth: '0px',
-						}}
-					/>
+					
+				</Typography>
+				<Typography>Andor Gabriel</Typography>
 					<Typography sx={{ fontSize: '20px' }}>
 						DUBAI BASED DJ
 					</Typography>
@@ -167,7 +151,7 @@ const TestimonialSection: React.FC = () => {
 							/>
 						</Button>
 					</Stack>
-				</Typography>
+				</Stack>
 			</Stack>
 		</DefaultLayout>
 	)

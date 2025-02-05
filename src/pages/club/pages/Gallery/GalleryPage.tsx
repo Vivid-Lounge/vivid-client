@@ -11,7 +11,11 @@ const GalleryPage: React.FC = () => {
                 width: '100vw',
                 height: '100vh',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                padding: {
+                    xs: '16px',
+                    md: '32px 0'
+                }
                 // background: 'red'
             }}
         >

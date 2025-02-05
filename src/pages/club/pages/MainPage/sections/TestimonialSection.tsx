@@ -7,10 +7,12 @@ import QuoteMark from "../../../../../shared/icons/QuoteMark";
 import ArrowIcon from "../../../../../shared/icons/ArrowIcon";
 import Background from "./../../../../../shared/images/about-us-photo2.png";
 import Andor from "../../../../../shared/images/Andor";
-import Testimonal from "../components/Testimonal";
+import Testimonial from "../components/Testimonial";
+import Testimonials from "../components/Testimonials";
 
 const TestimonialSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const textRef = useRef(null);
 
   useEffect(() => {
@@ -27,6 +29,25 @@ const TestimonialSection: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % Testimonials.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % Testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + Testimonials.length) % Testimonials.length
+    );
+  };
+
 
   return (
     <DefaultLayout
@@ -81,7 +102,7 @@ const TestimonialSection: React.FC = () => {
             aspectRatio: "1 / 1",
             padding: "0px",
             height: "auto",
-            background: `url(${Background})`,
+            background: `url(${Testimonials[currentIndex].artistImage})`,
             justifyContent: "center",
             backgroundPosition: "center",
             backgroundSize: "cover",
@@ -103,17 +124,7 @@ const TestimonialSection: React.FC = () => {
           }}
         >
           <QuoteMark sx={{ width: "5rem", height: "auto" }} />
-          <Testimonal
-            textRef={textRef}
-            artist={"Andor Gabriel"}
-            testimonialText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur."
-            aboutArtist={'Based dubai dj'}
-          />
+          <Testimonial testimonial={Testimonials[currentIndex]} textRef={textRef}/>
           <Stack
             sx={{
               width: "100%",
@@ -123,7 +134,9 @@ const TestimonialSection: React.FC = () => {
               justifyContent: "flex-end",
             }}
           >
-            <Button>
+            <Button
+              onClick={prevTestimonial}
+            >
               <ArrowIcon
                 sx={{
                   fill: "white",
@@ -133,7 +146,9 @@ const TestimonialSection: React.FC = () => {
                 }}
               />
             </Button>
-            <Button>
+            <Button
+              onClick={nextTestimonial}
+            >
               <ArrowIcon
                 sx={{
                   fill: "white",

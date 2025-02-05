@@ -1,18 +1,15 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
+import { TestimonialType } from "../../../../../shared/types";
 
 interface Props {
   textRef: React.MutableRefObject<null>;
-  artist: String;
-  testimonialText: String;
-  aboutArtist?: String;
+  testimonial: TestimonialType
 }
 
-const Testimonal: React.FC<Props> = ({
+const Testimonial: React.FC<Props> = ({
   textRef,
-  artist,
-  testimonialText,
-  aboutArtist = "DJ",
+  testimonial,
 }) => {
   return (
     <Stack
@@ -38,7 +35,7 @@ const Testimonal: React.FC<Props> = ({
                         aliquip ex ea commodo consequat. Duis aute irure dolor in
                         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                         pariatur. */}
-        {testimonialText}
+        {testimonial.testimonialText}
       </Typography>
       <Typography
         sx={{
@@ -52,13 +49,13 @@ const Testimonal: React.FC<Props> = ({
             letterSpacing: '2px'
         }}
       >
-        {artist}
+        {testimonial.artist}
     </Typography>
       <Typography sx={{ fontSize: "1.25rem", color: "white" }}>
-        {aboutArtist}
+        {testimonial.aboutArtist}
       </Typography>
     </Stack>
   );
 };
 
-export default Testimonal;
+export default Testimonial;

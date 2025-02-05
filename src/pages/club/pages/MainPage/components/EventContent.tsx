@@ -5,6 +5,7 @@ import Button from '../../../components/Button'
 import { Typography, Stack, Box } from '@mui/material'
 import { Event } from '../../../../../shared/types'
 import { api, API_URI } from '../../../../../shared/api_routes'
+
 interface Props {
 	mainPage?: boolean | undefined
 }

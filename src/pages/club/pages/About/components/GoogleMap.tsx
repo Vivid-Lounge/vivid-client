@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Stack } from "@mui/material";
+import { Grid2 } from "@mui/material";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 interface Props {
@@ -43,7 +43,8 @@ const GoogleMaps: React.FC<Props> = ({ mapDisplay = false, placeId }) => {
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
-    <Stack
+    <Grid2
+      container
       sx={{
         position: "fixed",
         height: mapDisplay ? "100dvh" : "0%",
@@ -54,9 +55,17 @@ const GoogleMaps: React.FC<Props> = ({ mapDisplay = false, placeId }) => {
         transition: "all 0.2s ease-in-out",
       }}
     >
+      <Grid2
+        container
+        size={{xs: 12, md: 10}}
+        sx={{
+          height: '80%',
+        }}
+      >
+
       {location && (
         <GoogleMap
-          mapContainerStyle={{ width: "80%", height: "80%" }}
+          mapContainerStyle={{ width: "100%", height: "100%" }}
           center={location}
           zoom={19}
         >
@@ -70,7 +79,8 @@ const GoogleMaps: React.FC<Props> = ({ mapDisplay = false, placeId }) => {
           />
         </GoogleMap>
       )}
-    </Stack>
+      </Grid2>
+    </Grid2>
   );
 };
 

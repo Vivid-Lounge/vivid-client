@@ -13,10 +13,12 @@ import EventTypeIcon from "./EventTypeIcon";
 import ScheduleIcon from "./ScheduleIcon";
 import DateIcon from "./DateIcon";
 import CloseIcon from "./CloseIcon";
+import LocationIcon from "./LocationIcon";
 
 export {
   EventTypeIcon,
   UpcomingEventsIcon,
+  LocationIcon,
   ArrowIcon,
   VividLogoIcon,
   ServiceTitleIcon,

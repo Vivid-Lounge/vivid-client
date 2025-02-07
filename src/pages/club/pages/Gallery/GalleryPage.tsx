@@ -1,9 +1,35 @@
-import React from "react";
-import Photos from "../MainPage/sections/PhotoTest";
+import React, { useEffect } from 'react'
 import Gallery from "../MainPage/components/Gallery";
 import { Grid2 } from "@mui/material";
-
+import {
+	API_URI,
+	SERVE_IMAGES_URI,
+	api,
+} from '../../../../shared/api_routes'
+import { GalleryType } from '../../../../shared/types'
 const GalleryPage: React.FC = () => {
+	const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
+    const retrieveGallery = async () => {
+        const response = await fetch(API_URI + api.getGallery.route, {
+            method: api.getGallery.method,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        if (response.status === 200) {
+                    const data = await response.json()
+                    console.log(data)
+                    setGallery(data[0])
+                } else {
+                    setGallery({} as GalleryType)
+                }
+    }
+
+    useEffect(() => {
+        retrieveGallery();
+        console.log(gallery)
+    }, [])
+
     return (
         <Grid2
             container
@@ -26,9 +52,9 @@ const GalleryPage: React.FC = () => {
                         minHeight: '100%',
                     }}
                 >
-                    {Photos.map((photo, index) => (
-                        <Gallery images={photo} key={index} />
-                    ))}
+                    {gallery.imageArray && (
+                        <Gallery images={gallery.imageArray} />
+                    )}
             </Grid2>
         </Grid2>
     )

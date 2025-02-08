@@ -13,7 +13,10 @@ import Testimonials from "../components/Testimonials";
 const TestimonialSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [open, setOpen] = useState(false);
   const textRef = useRef(null);
+
+  const handleRead = () => setOpen(!open);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,12 +34,14 @@ const TestimonialSection: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % Testimonials.length);
-    }, 10000);
+    if (!open) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % Testimonials.length);
+      }, 10000);
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearInterval(interval);
+    }
+  }, [open]);
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % Testimonials.length);
@@ -47,7 +52,6 @@ const TestimonialSection: React.FC = () => {
       (prevIndex) => (prevIndex - 1 + Testimonials.length) % Testimonials.length
     );
   };
-
 
   return (
     <DefaultLayout
@@ -92,7 +96,10 @@ const TestimonialSection: React.FC = () => {
           width: "100%",
           // background: "red",
           justifyContent: "center",
-          flexDirection: "row-reverse",
+          flexDirection: {
+            xs: "column",
+            md: "row-reverse",
+          },
           alignItems: "center",
           position: "relative",
         }}
@@ -106,25 +113,47 @@ const TestimonialSection: React.FC = () => {
             justifyContent: "center",
             backgroundPosition: "center",
             backgroundSize: "cover",
-            width: '35%',
+            width: {
+              xs: "80%",
+              sm: '60%',
+              md: "35%",
+            },
+            // opacity: isVisible ? 1 : 0,
+            // transform: isVisible
+            //   ? "translate(0%, 0%)"
+            // : "translate(-10%, -10%)",
+            // transition: "all 1s ease-out",
           }}
         />
         <Stack
           sx={{
             flexDirection: "column",
-            width: "40%",
+            width: {
+              xs: "80%",
+              md: "clamp(5rem, 40%, 20rem)",
+            },
             height: "max-content",
-            padding: "2rem",
+            padding: "1rem",
             background: "#1D1D1D",
             opacity: isVisible ? 1 : 0,
-            transform: isVisible
-              ? "translate(20%, 10%)"
-              : "translate(10%, 10%)",
+            transform: {
+              xs: isVisible
+                ? "translate(0, -8px)"
+                : "translate(0, -5%)",
+              md: isVisible
+                ? "translate(20%, 10%)"
+                : "translate(10%, 10%)",
+            },
             transition: " 1s ease-out",
           }}
         >
           <QuoteMark sx={{ width: "5rem", height: "auto" }} />
-          <Testimonial testimonial={Testimonials[currentIndex]} textRef={textRef}/>
+          <Testimonial
+            testimonial={Testimonials[currentIndex]}
+            textRef={textRef}
+            handleRead={handleRead}
+            open={open}
+          />
           <Stack
             sx={{
               width: "100%",
@@ -136,24 +165,36 @@ const TestimonialSection: React.FC = () => {
           >
             <Button
               onClick={prevTestimonial}
+              sx={{
+                width: "1rem",
+                height: "auto",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               <ArrowIcon
                 sx={{
                   fill: "white",
-                  height: "100%",
-                  width: "auto",
+                  height: "auto",
+                  width: "1.5rem",
                   transform: "rotate(90deg)",
                 }}
               />
             </Button>
             <Button
               onClick={nextTestimonial}
+              sx={{
+                width: "1rem",
+                height: "auto",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               <ArrowIcon
                 sx={{
                   fill: "white",
-                  height: "100%",
-                  width: "auto",
+                  height: "auto",
+                  width: "1.5rem",
                   transform: "rotate(270deg)",
                 }}
               />

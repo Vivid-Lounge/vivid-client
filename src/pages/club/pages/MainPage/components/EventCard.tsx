@@ -45,7 +45,11 @@ const EventCard: React.FC<Props> = ({ event, onPrevClick, onNextClick }) => {
 				sx={{
 					width: '100%',
 					height: 'auto',
-					aspectRatio: '1 / 0.3',
+					aspectRatio: {
+						xs: '1 / 1.3',
+						sm: '1 / 0.8',
+						md: '1 / 0.3',
+					},
 					background: `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url("${SERVE_IMAGES_URI}${event.coverImage}")`,
 					padding: '1rem',
 					justifyContent: 'space-between',

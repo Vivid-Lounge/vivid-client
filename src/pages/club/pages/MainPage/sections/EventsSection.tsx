@@ -11,7 +11,10 @@ const EventsSection: React.FC<Props> = ({mainPage = true}) => {
         <Grid2
             container
             sx={{
-                minHeight: '100vh',
+                minHeight: {
+                    xs: '100vh',
+                    md: '100vh',
+                },
                 width: '100vw',
                 background: 'linear-gradient(180deg, #522036 25%, #0B0B0B 83%)',
                 alignItems: 'center',

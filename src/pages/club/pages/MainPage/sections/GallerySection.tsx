@@ -9,9 +9,17 @@ import Gallery from '../components/Gallery'
 import Photos from './PhotoTest'
 import { Button } from '../../../components'
 
+import {
+	API_URI,
+	SERVE_IMAGES_URI,
+	api,
+} from '../../../../../shared/api_routes'
+import { GalleryType } from '../../../../../shared/types'
+
+
 const GallerySection: React.FC = () => {
 	const sectionRef = useRef(null)
-
+    const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
 	const [isVisible, setIsVisible] = React.useState(false)
 	const [isGallery, setIsGallery] = React.useState(false)
 	const visibleCount = 1
@@ -21,6 +29,21 @@ const GallerySection: React.FC = () => {
 	const handleNavigate = () => {
 		navigate('/gallery')
 	}
+
+	 const retrieveGallery = async () => {
+				const response = await fetch(API_URI + api.getGallery.route, {
+					method: api.getGallery.method,
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				})
+				if (response.status === 200) {
+							const data = await response.json()
+							setGallery(data[0])
+						} else {
+							setGallery({} as GalleryType)
+						}
+			}
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -36,6 +59,12 @@ const GallerySection: React.FC = () => {
 
 		return () => observer.disconnect()
 	}, [])
+
+	 useEffect(() => {
+				retrieveGallery();
+				console.log('caca')
+				console.log(gallery)
+			}, [])
 	return (
 		<DefaultLayout
 			sx={{
@@ -135,9 +164,15 @@ const GallerySection: React.FC = () => {
 					}}
 				></Stack>
 			</Stack> */}
-			{Photos.slice(0, isGallery ? Photos.length : visibleCount).map((photo, index) => (
+			{/* {Photos.slice(0, isGallery ? Photos.length : visibleCount).map((photo, index) => (
                 <Gallery images={photo} key={index} />
-            ))}
+            ))} */}
+			{/* {gallery.imageArray && gallery.imageArray.slice(0, isGallery ? gallery.imageArray.length : visibleCount).map((photo, index) => (
+				<Gallery images={[`http://localhost:4000/gallery/${photo.imageUrl}`]} key={index} />
+			))} */}
+			{gallery.imageArray &&
+				<Gallery images={gallery.imageArray.slice(0, 3)} />
+			}
 			{!isGallery && (
                 <Button onClick={handleNavigate}>
                 	<Typography>View More</Typography>

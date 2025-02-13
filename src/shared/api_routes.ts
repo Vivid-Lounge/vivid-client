@@ -11,6 +11,10 @@ export const apiRoutes = {
 			route: '/events/:slug',
 		},
 		{
+			method: 'GET',
+			route: '/gallery'
+		},
+		{
 			method: 'POST',
 			route: '/events',
 		},
@@ -28,6 +32,7 @@ export const apiRoutes = {
 export const api = {
 	getEvents: { route: '/events', method: 'GET' },
 	getEvent: { route: '/events/', method: 'GET' },
+	getGallery: { route: '/gallery', method: 'GET'},
 	createEvent: { route: '/events', method: 'POST' },
 	updateEvent: { route: '/events/:slug', method: 'PUT' },
 	deleteEvent: { route: '/events/:slug', method: 'DELETE' },

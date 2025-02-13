@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid2, Typography, Stack, Divider } from "@mui/material";
+import { Grid2, Typography, Stack } from "@mui/material";
 import Background from "./../../../../../shared/images/visit-background.png";
 import Button from "../../../components/Button";
 import { VisitOurClub, Mapa, Mail, Phone } from "../../../../../shared/icons";

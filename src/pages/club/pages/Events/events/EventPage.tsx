@@ -45,9 +45,17 @@ const EventPage: React.FC = () => {
 				height: '100vh',
 				justifyContent: 'center',
 				alignItems: 'center',
+				// background: 'red',
+				background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("${SERVE_IMAGES_URI}${event.coverImage}")`,
+				backgroundPosition: 'center',
+				backgroundSize: 'cover',
+				padding: {
+					xs: '16px',
+					md: '32px 0px'
+				}
 			}}
 		>
-			<Box
+			{/* <Box
 				sx={{
 					width: '100%',
 					height: '100%',
@@ -60,21 +68,24 @@ const EventPage: React.FC = () => {
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 				}}
-			></Box>
-			<Box
+			></Box> */}
+			<Grid2
+				container
+				size={{xs: 12, md: 10}}
 				sx={{
-					width: '100%',
+					// width: '100%',
 					height: '100%',
-					border: '1px solid black',
+					// border: '1px solid black',
 					display: 'flex',
 					position: 'relative',
 					justifyContent: 'center',
-					flexDirection: 'column',
+					flexDirection: 'row',
 					alignItems: 'center',
+					// background: 'red'
 				}}
 			>
 				<AboutEventSection event={event} />
-			</Box>
+			</Grid2>
 		</Grid2>
 	)
 }

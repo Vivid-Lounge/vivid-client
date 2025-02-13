@@ -14,12 +14,16 @@ const DefaultLayout: React.FC<Props> = ({ children, ...sx }) => (
     //   background: "linear-gradient(180deg, #522036 25%, #0B0B0B 83%)",
       alignItems: "center",
       justifyContent: "center",
+      padding: {
+        xs: '16px',
+        md: '16px 0'
+      }
     }}
     {...sx}
   >
     <Grid2
       container
-      size={{ xs: 10 }}
+      size={{ xs: 12, md: 10 }}
       sx={{
         height: "max-content",
         alignItems: "center",

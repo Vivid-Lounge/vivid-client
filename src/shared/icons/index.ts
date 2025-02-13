@@ -14,6 +14,7 @@ import ScheduleIcon from "./ScheduleIcon";
 import DateIcon from "./DateIcon";
 import CloseIcon from "./CloseIcon";
 import LocationIcon from "./LocationIcon";
+import InfoIcon from "./InfoIcon";
 
 export {
   EventTypeIcon,
@@ -31,5 +32,6 @@ export {
   VisitOurClub,
   ScheduleIcon,
   DateIcon,
-  CloseIcon
+  CloseIcon,
+  InfoIcon
 };

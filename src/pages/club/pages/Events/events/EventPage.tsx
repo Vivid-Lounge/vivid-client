@@ -46,7 +46,7 @@ const EventPage: React.FC = () => {
 				justifyContent: 'center',
 				alignItems: 'center',
 				// background: 'red',
-				background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("${SERVE_IMAGES_URI}${event.coverImage}")`,
+				background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("${SERVE_IMAGES_URI}${event.coverImage}")`,
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
 				padding: {
@@ -74,14 +74,17 @@ const EventPage: React.FC = () => {
 				size={{xs: 12, md: 10}}
 				sx={{
 					// width: '100%',
-					height: '100%',
+					height: 'calc(100% - 60px)',
 					// border: '1px solid black',
-					display: 'flex',
 					position: 'relative',
 					justifyContent: 'center',
-					flexDirection: 'row',
+					flexDirection: {
+						xs: 'column',
+						md: 'row'
+					},
 					alignItems: 'center',
-					// background: 'red'
+					// background: 'red',
+					gap: '32px',
 				}}
 			>
 				<AboutEventSection event={event} />

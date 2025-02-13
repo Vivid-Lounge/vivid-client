@@ -101,6 +101,9 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 						padding: '1rem',
 						gap: '2rem',
 						width: '100%',
+						backdropFilter: 'blur(10px)',
+						background: 'rgba(0,0,0,0.3)',
+						borderRadius: '12px',
 					}}
 				>
 					<Typography

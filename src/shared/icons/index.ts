@@ -15,6 +15,7 @@ import DateIcon from "./DateIcon";
 import CloseIcon from "./CloseIcon";
 import LocationIcon from "./LocationIcon";
 import InfoIcon from "./InfoIcon";
+import FeelTheGalleryTitleIcon from "./FeelTheGalleryTitleIcon";
 
 export {
   EventTypeIcon,
@@ -33,5 +34,6 @@ export {
   ScheduleIcon,
   DateIcon,
   CloseIcon,
-  InfoIcon
+  InfoIcon,
+  FeelTheGalleryTitleIcon
 };

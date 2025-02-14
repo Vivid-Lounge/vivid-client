@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import DefaultLayout from '../../../defaultLayout/DefaultLayout'
 import { Stack, Typography } from '@mui/material'
-import { GalleryTitleIcon } from '../../../../../shared/icons'
+import { FeelTheGalleryTitleIcon } from '../../../../../shared/icons'
 import Background from './../../../../../shared/images/about-us-photo.png'
 // import Background2 from './../../../../../shared/images/about-us-photo2.png'
 import Gallery from '../components/Gallery'
@@ -71,7 +71,10 @@ const GallerySection: React.FC = () => {
 				background: 'linear-gradient(180deg, #522036 25%, #0B0B0B 83%)',
 				alignItems: 'center',
 				justifyContent: 'center',
-				padding: '4rem 0',
+				padding: {
+					xs: '32px 16px',
+					md: '4rem 0'
+				},
 				flexWrap: 'wrap',
 			}}
 		>
@@ -83,6 +86,10 @@ const GallerySection: React.FC = () => {
 						md: 'row',
 					},
 					justifyContent: 'space-between',
+					gap: {
+						xs: '16px',
+						md: 'none'
+					}
 				}}
 			>
 				<Stack
@@ -91,13 +98,14 @@ const GallerySection: React.FC = () => {
 							xs: '100%',
 							md: '40%',
 						},
-						// background: 'red'
+						// background: 'red',
+						alignItems: 'center'
 					}}
 				>
 					<Typography color='white' fontSize={32}>
 						OUR GALLERY
 					</Typography>
-					<GalleryTitleIcon sx={{ width: '100%', height: 'auto' }} />
+					<FeelTheGalleryTitleIcon sx={{ width: '100%', height: 'auto' }} />
 				</Stack>
 				<Stack
 					sx={{

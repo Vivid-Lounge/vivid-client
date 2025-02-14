@@ -31,13 +31,16 @@ const VisitSection: React.FC = () => {
           // background: 'blue',
           height: "100%",
           position: "relative",
-          alignItems: "center",
+          alignItems: {
+            xs: 'flex-start',
+            md: 'center'
+          },
           justifyContent: "center",
           flexDirection: {
-			 xs: "column",
-			 md: 'row'
-		  },
-		  rowGap: '16px'
+            xs: "column",
+            md: "row",
+          },
+          rowGap: "16px",
         }}
       >
         <Stack
@@ -46,7 +49,7 @@ const VisitSection: React.FC = () => {
               xs: "max-content  ",
               md: "50%",
             },
-			gap: '16px',
+            gap: "16px",
           }}
         >
           <Typography
@@ -58,30 +61,30 @@ const VisitSection: React.FC = () => {
             VISIT US
           </Typography>
           <Stack
-		  	sx={{
-				'>*': {
-					color: '#fff',
-					fontSize: 'clamp(1.5rem, 5vw, 4rem)',
-					fontWeight: '800'
-				},
-				marginTop: '-16px'
-			}}
-			spacing={-2}
-		  >
-			<Typography>COME AND VISIT</Typography>
-			<Typography
-				// sx={{
-				// 	marginTop: '-32px'
-				// }}
-			>
-				OUR CLUB
-			</Typography>
-		  </Stack>
+            sx={{
+              ">*": {
+                color: "#fff",
+                fontSize: "clamp(1.5rem, 5vw, 4rem)",
+                fontWeight: "800",
+              },
+              marginTop: "-16px",
+            }}
+            spacing={-2}
+          >
+            <Typography>COME AND VISIT</Typography>
+            <Typography
+            // sx={{
+            // 	marginTop: '-32px'
+            // }}
+            >
+              OUR CLUB
+            </Typography>
+          </Stack>
           <Button
-		  	sx={{
-				padding: '12px 24px'
-			}}
-		  >
+            sx={{
+              padding: "12px 24px",
+            }}
+          >
             <Typography fontWeight={"light"} fontSize={"1.25rem"}>
               CONTACT US
             </Typography>
@@ -90,9 +93,9 @@ const VisitSection: React.FC = () => {
         <Stack
           sx={{
             width: {
-				xs: "max-content",
-				md: '50%'
-			},
+              xs: "max-content",
+              md: "50%",
+            },
             height: "auto",
             flexDirection: "center",
             // background: 'red',
@@ -103,14 +106,14 @@ const VisitSection: React.FC = () => {
           <Stack
             sx={{
               width: {
-				xs: "100%",
-			  },
+                xs: "100%",
+              },
               height: "auto",
               padding: "1rem",
               background: "#1D1D1D",
               color: "white",
               fontWeight: "regular",
-			  gap: '8px'
+              gap: "8px",
             }}
           >
             <Stack
@@ -121,7 +124,7 @@ const VisitSection: React.FC = () => {
                 alignItems: "center",
               }}
             >
-              <Mapa sx={{ width: "2rem", height: 'auto' }} />
+              <Mapa sx={{ width: "2rem", height: "auto" }} />
               <Typography sx={{ fontSize: "1rem", fontWeight: "light" }}>
                 Bld Profesor Dimitrie Mangeron Nr 71, Iași
               </Typography>
@@ -134,7 +137,7 @@ const VisitSection: React.FC = () => {
                 alignItems: "center",
               }}
             >
-              <Mail sx={{ width: "2rem", height: 'auto' }} />
+              <Mail sx={{ width: "2rem", height: "auto" }} />
               <Typography sx={{ fontSize: "1rem", fontWeight: "light" }}>
                 vividlounge@gmail.com
               </Typography>
@@ -147,7 +150,7 @@ const VisitSection: React.FC = () => {
                 alignItems: "center",
               }}
             >
-              <Phone sx={{ width: "2rem", height: 'auto' }} />
+              <Phone sx={{ width: "2rem", height: "auto" }} />
               <Typography sx={{ fontSize: "1rem", fontWeight: "light" }}>
                 0755.334.826
               </Typography>

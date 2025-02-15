@@ -21,23 +21,12 @@ import { ArrowIcon, VividLogoIcon } from '../../../shared/icons'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const NavBar: React.FC = () => {
-<<<<<<< HEAD
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
-  const location = useLocation()
-  const [notHome, setNotHome] = useState(location.pathname !== "/")
-//   const isDesktop = useMediaQuery(theme.breakpoints.down("sm"))
-  useEffect(() => {
-    setNotHome(location.pathname !== "/")
-  }, [location.pathname])
-=======
 	const [mobileOpen, setMobileOpen] = useState(false)
 	const theme = useTheme()
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 	const location = useLocation()
 	const [notHome, setNotHome] = useState(location.pathname !== '/')
-	const isDesktop = useMediaQuery(theme.breakpoints.down('sm'))
+	// const isDesktop = useMediaQuery(theme.breakpoints.down('sm'))
 	const currentHash = location.hash
 	const [activeHash, setActiveHash] = useState('')
 	useEffect(() => {
@@ -50,7 +39,7 @@ const NavBar: React.FC = () => {
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen)
 	}
-	const [menuItems, setMenuItems] = useState<
+	const [menuItems, ] = useState<
 		{
 			text: string
 			link: string
@@ -61,7 +50,6 @@ const NavBar: React.FC = () => {
 		{ text: 'Events', link: '/#events' },
 		{ text: 'Contact', link: '/#contact' },
 	])
->>>>>>> d07c088ff212e6367ba8b079ca9d215802d96483
 
 	const menuItemVariants = {
 		hidden: { opacity: 0, y: 20 },

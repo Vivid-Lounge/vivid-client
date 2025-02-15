@@ -18,16 +18,9 @@ import { GalleryType } from '../../../../../shared/types'
 
 const GallerySection: React.FC = () => {
 	const sectionRef = useRef(null)
-<<<<<<< HEAD
-    const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
+	const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
 	const [, setIsVisible] = React.useState(false)
 	const [isGallery] = React.useState(false)
-=======
-	const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
-	const [isVisible, setIsVisible] = React.useState(false)
-	const [isGallery, setIsGallery] = React.useState(false)
-	const visibleCount = 1
->>>>>>> d07c088ff212e6367ba8b079ca9d215802d96483
 
 	const navigate = useNavigate()
 	console.log(gallery)

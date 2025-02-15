@@ -1,7 +1,4 @@
 import { TestimonialType } from '../../../../../shared/types'
-import Test1 from './../../../../../shared/images/about-us-photo.png'
-import Test2 from './../../../../../shared/images/about-us-photo2.png'
-import Test3 from './../../../../../shared/images/img-test-event.png'
 import Dony from './../../../../../shared/images/dony.jpg'
 import Reman from './../../../../../shared/images/reman.jpg'
 import andor from './../../../../../shared//images/andor.png'

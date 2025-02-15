@@ -70,7 +70,7 @@ const EventContent: React.FC<Props> = ({ mainPage = true }) => {
 						transition: 'transform 0.5s ease-in-out',
 					}}
 				>
-					{events.map((event, index) => (
+					{events.map((event) => (
 						<Box
 							key={event.slug}
 							sx={{

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Grid2, Stack, Typography } from '@mui/material'
 import Background from './../../../../shared/images/hero-section-background.png'
+import { Grid2 } from '@mui/material'
 import Map from './components/MapModal'
-import { SectionTitle } from '../../components'
+// import { SectionTitle } from '../../components'
 import MinimalistPhoto from './components/MinimalistPhoto'
 
 const About: React.FC = () => {

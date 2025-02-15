@@ -1,5 +1,3 @@
-"use client"
-
 import type React from "react"
 import { useState, useEffect } from "react"
 import {
@@ -27,7 +25,7 @@ const NavBar: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"))
   const location = useLocation()
   const [notHome, setNotHome] = useState(location.pathname !== "/")
-  const isDesktop = useMediaQuery(theme.breakpoints.down("sm"))
+//   const isDesktop = useMediaQuery(theme.breakpoints.down("sm"))
   useEffect(() => {
     setNotHome(location.pathname !== "/")
   }, [location.pathname])

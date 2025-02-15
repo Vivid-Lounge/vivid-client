@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Stack, Typography, Divider } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Button from "../../../components/Button";
 import TestimonialTitleIcon from "../../../../../shared/icons/TestimonialTitleIcon";
 import DefaultLayout from "../../../defaultLayout/DefaultLayout";
 import QuoteMark from "../../../../../shared/icons/QuoteMark";
 import ArrowIcon from "../../../../../shared/icons/ArrowIcon";
-import Background from "./../../../../../shared/images/about-us-photo2.png";
-import Andor from "../../../../../shared/images/Andor";
+// import Background from "./../../../../../shared/images/about-us-photo2.png";
+// import Andor from "../../../../../shared/images/Andor";
 import Testimonial from "../components/Testimonial";
 import Testimonials from "../components/Testimonials";
 

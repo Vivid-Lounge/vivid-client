@@ -6,12 +6,12 @@ import { FeelTheGalleryTitleIcon } from '../../../../../shared/icons'
 import Background from './../../../../../shared/images/about-us-photo.png'
 // import Background2 from './../../../../../shared/images/about-us-photo2.png'
 import Gallery from '../components/Gallery'
-import Photos from './PhotoTest'
+// import Photos from './PhotoTest'
 import { Button } from '../../../components'
 
 import {
 	API_URI,
-	SERVE_IMAGES_URI,
+	// SERVE_IMAGES_URI,
 	api,
 } from '../../../../../shared/api_routes'
 import { GalleryType } from '../../../../../shared/types'
@@ -20,9 +20,8 @@ import { GalleryType } from '../../../../../shared/types'
 const GallerySection: React.FC = () => {
 	const sectionRef = useRef(null)
     const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
-	const [isVisible, setIsVisible] = React.useState(false)
-	const [isGallery, setIsGallery] = React.useState(false)
-	const visibleCount = 1
+	const [, setIsVisible] = React.useState(false)
+	const [isGallery] = React.useState(false)
 
 	const navigate = useNavigate()
 	

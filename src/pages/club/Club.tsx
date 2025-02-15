@@ -1,5 +1,5 @@
-import React, { Suspense, useEffect } from 'react'
-import MainPage from './pages/MainPage'
+import React, { useEffect } from 'react'
+// import MainPage from './pages/MainPage'
 import theme from '../../shared/themes/theme'
 import { ThemeProvider } from '@mui/material'
 import { RouterProvider } from 'react-router-dom'

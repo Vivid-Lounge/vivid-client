@@ -2,7 +2,7 @@ import React from "react";
 import { Grid2, Typography, Stack } from "@mui/material";
 import Background from "./../../../../../shared/images/visit-background.png";
 import Button from "../../../components/Button";
-import { VisitOurClub, Mapa, Mail, Phone } from "../../../../../shared/icons";
+import { Mapa, Mail, Phone } from "../../../../../shared/icons";
 
 const VisitSection: React.FC = () => {
   return (

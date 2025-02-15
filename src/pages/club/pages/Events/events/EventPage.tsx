@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { events } from './events'
-import { Grid2, Typography, Stack, Box } from '@mui/material'
-import { EventHeroSection } from '../sections'
+// import { events } from './events'
+import { Grid2 } from '@mui/material'
+// import { EventHeroSection } from '../sections'
 import AboutEventSection from '../sections/AboutEventSection'
 import { Event } from '../../../../../shared/types'
 import {

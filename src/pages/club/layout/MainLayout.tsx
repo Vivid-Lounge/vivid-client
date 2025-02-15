@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { NavBar } from '../components'
 import { Box } from '@mui/material'
-import { ArrowIcon } from '../../../shared/icons'
+// import { ArrowIcon } from '../../../shared/icons'
 type Props = {
 	children: React.ReactNode
 }

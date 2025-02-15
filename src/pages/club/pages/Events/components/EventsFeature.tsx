@@ -1,6 +1,6 @@
 import React from 'react'
 import { SvgIconProps, Stack, Typography } from '@mui/material'
-import { DateIcon } from '../../../../../shared/icons'
+// import { DateIcon } from '../../../../../shared/icons'
 
 interface Props {
 	featureTitle: string | null

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Box, Grid2, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import {
   DateIcon,
   InfoIcon

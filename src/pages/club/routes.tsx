@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+// import React, { lazy } from 'react'
 import { createBrowserRouter, RouteObject } from 'react-router-dom'
 import MainLayout from './layout/MainLayout'
 import { Gallery, Events, MainPage, About } from './pages'

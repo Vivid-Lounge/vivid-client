@@ -3,7 +3,7 @@ import Gallery from "../MainPage/components/Gallery";
 import { Grid2 } from "@mui/material";
 import {
 	API_URI,
-	SERVE_IMAGES_URI,
+	// SERVE_IMAGES_URI,
 	api,
 } from '../../../../shared/api_routes'
 import { GalleryType } from '../../../../shared/types'

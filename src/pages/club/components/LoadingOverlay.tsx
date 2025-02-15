@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import { BarLoader } from 'react-spinners'
 import { VividLogoIcon } from '../../../shared/icons'

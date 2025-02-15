@@ -13,14 +13,13 @@ import {
   useMediaQuery,
   useTheme,
   Box,
-  useScrollTrigger,
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
 import { HashLink as Link } from "react-router-hash-link"
 import { useLocation } from "react-router-dom"
 import { ArrowIcon, VividLogoIcon } from "../../../shared/icons"
-import { motion, AnimatePresence, useScroll } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const NavBar: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -44,6 +43,19 @@ const NavBar: React.FC = () => {
     { text: "Contact", link: "/#contact" },
   ]
 
+  const menuItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  }
+
   const drawer = (
     <motion.div
       initial={{ x: "100%" }}
@@ -59,21 +71,27 @@ const NavBar: React.FC = () => {
         backdropFilter: "blur(10px)",
       }}
     >
-      <IconButton sx={{ color: "white",display:'block',
-		 position: "absolute", right: 8, top: 8 }} onClick={handleDrawerToggle}>
+      <IconButton
+        sx={{ color: "white", display: "block", position: "absolute", right: 8, top: 8 }}
+        onClick={handleDrawerToggle}
+      >
         <CloseIcon />
       </IconButton>
-      <List sx={{
-		mt:5
-	  }}>
+      <List sx={{ mt: 5 }}>
         {menuItems.map((item, index) => (
-          <motion.div
-            key={item.text}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <ListItem component={Link} to={item.link} smooth onClick={handleDrawerToggle}>
+          <motion.div key={item.text} variants={menuItemVariants} initial="hidden" animate="visible" custom={index}>
+            <ListItem
+              component={Link}
+              to={item.link}
+              smooth
+              onClick={handleDrawerToggle}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  transition: "background-color 0.3s ease",
+                },
+              }}
+            >
               <ListItemText
                 primary={item.text}
                 sx={{
@@ -100,9 +118,9 @@ const NavBar: React.FC = () => {
       <AppBar
         position="fixed"
         sx={{
-          background:'rgba(255,255,255,0.01)',
+          background: "rgba(255,255,255,0.01)",
           backdropFilter: "blur(20px)",
-		  zIndex:1
+          zIndex: 1,
         }}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
@@ -138,19 +156,34 @@ const NavBar: React.FC = () => {
           ) : (
             <Box sx={{ display: "flex", gap: "16px" }}>
               {!notHome &&
-                menuItems.map((item) => (
-                  <Link
+                menuItems.map((item, index) => (
+                  <motion.div
                     key={item.text}
-                    smooth
-                    to={item.link}
-                    style={{
-                      color: "white",
-                      textDecoration: "none",
-                      textTransform: "uppercase",
-                    }}
+                    variants={menuItemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={index}
                   >
-                    {item.text}
-                  </Link>
+                    <Link
+                      smooth
+                      to={item.link}
+                      style={{
+                        color: "white",
+                        textDecoration: "none",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      <motion.span
+                        whileHover={{
+                          scale: 1.1,
+                          textShadow: "0 0 8px rgba(255, 255, 255, 0.5)",
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {item.text}
+                      </motion.span>
+                    </Link>
+                  </motion.div>
                 ))}
             </Box>
           )}
@@ -166,7 +199,6 @@ const NavBar: React.FC = () => {
             ModalProps={{
               keepMounted: true,
             }}
-            
           >
             {drawer}
           </Drawer>

@@ -16,33 +16,39 @@ import {
 } from '../../../../../shared/api_routes'
 import { GalleryType } from '../../../../../shared/types'
 
-
 const GallerySection: React.FC = () => {
 	const sectionRef = useRef(null)
+<<<<<<< HEAD
     const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
 	const [, setIsVisible] = React.useState(false)
 	const [isGallery] = React.useState(false)
+=======
+	const [gallery, setGallery] = React.useState<GalleryType>({} as GalleryType)
+	const [isVisible, setIsVisible] = React.useState(false)
+	const [isGallery, setIsGallery] = React.useState(false)
+	const visibleCount = 1
+>>>>>>> d07c088ff212e6367ba8b079ca9d215802d96483
 
 	const navigate = useNavigate()
-	
+	console.log(gallery)
 	const handleNavigate = () => {
 		navigate('/gallery')
 	}
 
-	 const retrieveGallery = async () => {
-				const response = await fetch(API_URI + api.getGallery.route, {
-					method: api.getGallery.method,
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				})
-				if (response.status === 200) {
-							const data = await response.json()
-							setGallery(data[0])
-						} else {
-							setGallery({} as GalleryType)
-						}
-			}
+	const retrieveGallery = async () => {
+		const response = await fetch(API_URI + api.getGallery.route, {
+			method: api.getGallery.method,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+		if (response.status === 200) {
+			const data = await response.json()
+			setGallery(data[0])
+		} else {
+			setGallery({} as GalleryType)
+		}
+	}
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -59,11 +65,11 @@ const GallerySection: React.FC = () => {
 		return () => observer.disconnect()
 	}, [])
 
-	 useEffect(() => {
-				retrieveGallery();
-				console.log('caca')
-				console.log(gallery)
-			}, [])
+	useEffect(() => {
+		retrieveGallery()
+		console.log('caca')
+		console.log(gallery)
+	}, [])
 	return (
 		<DefaultLayout
 			sx={{
@@ -72,7 +78,7 @@ const GallerySection: React.FC = () => {
 				justifyContent: 'center',
 				padding: {
 					xs: '32px 16px',
-					md: '4rem 0'
+					md: '4rem 0',
 				},
 				flexWrap: 'wrap',
 			}}
@@ -87,8 +93,8 @@ const GallerySection: React.FC = () => {
 					justifyContent: 'space-between',
 					gap: {
 						xs: '16px',
-						md: 'none'
-					}
+						md: 'none',
+					},
 				}}
 			>
 				<Stack
@@ -98,13 +104,15 @@ const GallerySection: React.FC = () => {
 							md: '40%',
 						},
 						// background: 'red',
-						alignItems: 'center'
+						alignItems: 'center',
 					}}
 				>
 					<Typography color='white' fontSize={32}>
 						OUR GALLERY
 					</Typography>
-					<FeelTheGalleryTitleIcon sx={{ width: '100%', height: 'auto' }} />
+					<FeelTheGalleryTitleIcon
+						sx={{ width: '100%', height: 'auto' }}
+					/>
 				</Stack>
 				<Stack
 					sx={{
@@ -177,14 +185,14 @@ const GallerySection: React.FC = () => {
 			{/* {gallery.imageArray && gallery.imageArray.slice(0, isGallery ? gallery.imageArray.length : visibleCount).map((photo, index) => (
 				<Gallery images={[`http://localhost:4000/gallery/${photo.imageUrl}`]} key={index} />
 			))} */}
-			{gallery.imageArray &&
+			{gallery.imageArray && (
 				<Gallery images={gallery.imageArray.slice(0, 3)} />
-			}
+			)}
 			{!isGallery && (
-                <Button onClick={handleNavigate}>
-                	<Typography>View More</Typography>
-                </Button>
-            )}
+				<Button onClick={handleNavigate}>
+					<Typography>View More</Typography>
+				</Button>
+			)}
 		</DefaultLayout>
 	)
 }

@@ -105,7 +105,10 @@ const TestimonialSection: React.FC = () => {
 					'linear-gradient(180deg, #0B0B0B 7%,#522036 48%, #0B0B0B 83%)',
 				alignItems: 'center',
 				justifyContent: 'center',
-				padding: '4rem 0',
+				padding: {
+					xs: '1rem',
+					md: '4rem 0',
+				},
 				flexWrap: 'wrap',
 				gap: '4rem',
 			}}
@@ -135,7 +138,7 @@ const TestimonialSection: React.FC = () => {
 				{/*<SectionTitle
             title="TESTIMONIALS"
           />*/}
-				<TestimonialTitleIcon sx={{ width: '30rem', height: 'auto' }} />
+				<TestimonialTitleIcon sx={{ width: 'clamp(6rem, 100%, 30rem)', height: 'auto' }} />
 			</Stack>
 			<Stack
 				ref={sectionRef}

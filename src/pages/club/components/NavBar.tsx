@@ -86,6 +86,7 @@ const NavBar: React.FC = () => {
 				right: 0,
 				top: 0,
 				backdropFilter: 'blur(10px)',
+				zIndex: '1201'
 			}}
 		>
 			<IconButton

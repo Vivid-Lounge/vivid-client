@@ -26,7 +26,8 @@ const AboutDescription: React.FC = () => {
 			ref={sectionRef}
 			sx={{
 				width: '100%',
-				gap: '16px',
+				// gap: '16px',
+				flexDirection: 'column'
 			}}
 		>
 			<Stack
@@ -43,6 +44,8 @@ const AboutDescription: React.FC = () => {
 						? 'translateX(0)'
 						: 'translateX(-100px)',
 					transition: 'all .9s ease-out',
+					
+					
 				}}
 			>
 				<Typography
@@ -57,6 +60,14 @@ const AboutDescription: React.FC = () => {
 							: 'translateX(50px)',
 						transition: 'all 1s ease-out',
 						transitionDelay: '0.2s',
+						display: {
+							xs: 'none',
+							md: 'flex'
+						}
+						// marginTop: {
+						// 	xs: '10rem',
+						// 	md: '0'
+						// }
 					}}
 				>
 					Suntem locul unde muzica de calitate și designul inovativ se
@@ -66,6 +77,35 @@ const AboutDescription: React.FC = () => {
 					prieteni, Vivid este locul unde distracția nu are limite.
 				</Typography>
 			</Stack>
+			<Typography
+					sx={{
+						padding: '16px',
+						backgroundColor: 'rgb(46, 46, 46)',
+						color: 'white',
+						opacity: isVisible ? 1 : 0,
+
+						transform: isVisible
+							? 'translate(0, 0)'
+							: 'translateX(50px)',
+						transition: 'all 1s ease-out',
+						transitionDelay: '0.2s',
+						// marginTop: {
+						// 	xs: '10rem',
+						// 	md: '0'
+						// }
+						width: '100%',
+						display: {
+							xs: 'flex',
+							md: 'none'
+						}
+					}}
+				>
+					Suntem locul unde muzica de calitate și designul inovativ se
+					întâlnesc pentru a oferi o experiență de petrecere absolută.
+					Fie că ești un iubitor al petrecerilor electrizante sau pur
+					și simplu vrei să te bucuri de o seară memorabilă alături de
+					prieteni, Vivid este locul unde distracția nu are limite.
+				</Typography>
 		</Stack>
 	)
 }

@@ -22,12 +22,12 @@ const FooterSection: React.FC = () => {
 					xs: '1rem',
 					md: '2rem 1rem',
 				},
-				height: '250px',
+				height: 'max-content',
 			}}
 		>
 			<Stack
 				sx={{
-					maxWidth: '1200px',
+					// maxWidth: '1200px',
 					margin: '0 auto',
 					gap: '1rem',
 				}}
@@ -49,7 +49,7 @@ const FooterSection: React.FC = () => {
 						alignItems='center'
 						spacing={3}
 					>
-						<Box sx={{ width: { xs: '100%', md: '20%' } }}>
+						<Box sx={{ width: { xs: 'max-content', md: '20%' } }}>
 							<VividLogoIcon
 								sx={{
 									height: '100px',

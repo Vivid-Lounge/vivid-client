@@ -92,18 +92,7 @@ const VisitSection: React.FC = () => {
 							OUR CLUB
 						</Typography>
 					</Stack>
-					<Stack
-						sx={{
-							aspectRatio: '4 / 2.7',
-							// background: 'rgba(255, 0, 0, 0.6)',
-							width: 'clamp(259px, 85vw, 700px)',
-							height: 'auto',
-							display: {
-								xs: 'flex',
-								md: 'none'
-							}
-						}}
-					/>
+					
 					<Box
 						component='button'
 						sx={{
@@ -124,7 +113,18 @@ const VisitSection: React.FC = () => {
 						CONTACT US
 					</Box>
 				</Stack>
-
+			    <Stack
+						sx={{
+							aspectRatio: '4 / 2.7',
+							// background: 'rgba(255, 0, 0, 0.6)',
+							width: 'clamp(259px, 85vw, 700px)',
+							height: 'auto',
+							display: {
+								xs: 'flex',
+								md: 'none'
+							}
+						}}
+					/>
 				{/* Contact Info Box */}
 				<Stack
 					sx={{
@@ -165,6 +165,10 @@ const VisitSection: React.FC = () => {
 						marginTop: { xs: '1rem', md: '-15rem' },
 						backdropFilter: 'blur(10px)',
 						border: '1px solid rgba(255, 255, 255, 0.1)',
+						marginBottom: {
+							xs: '180px',
+							md: '0'
+						}
 					}}
 				>
 					<Stack direction='row' spacing={2} alignItems='center'>

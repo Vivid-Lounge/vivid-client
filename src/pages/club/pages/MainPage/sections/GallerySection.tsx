@@ -104,7 +104,7 @@ const GallerySection: React.FC = () => {
 						OUR GALLERY
 					</Typography>
 					<FeelTheGalleryTitleIcon
-						sx={{ width: '100%', height: 'auto' }}
+						sx={{ width: 'clamp(6rem, 100%, 30rem)', height: 'auto' }}
 					/>
 				</Stack>
 				<Stack

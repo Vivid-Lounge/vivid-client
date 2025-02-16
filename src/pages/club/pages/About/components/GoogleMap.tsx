@@ -77,8 +77,8 @@ const GoogleMaps: React.FC<Props> = ({ mapDisplay = false, placeId }) => {
           <Marker
             position={location}
             icon={{
-              url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png", // URL pentru un pin personalizat (opțional)
-              scaledSize: new google.maps.Size(1000, 1000), // Dimensiunea pin-ului
+              url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+              scaledSize: new google.maps.Size(20, 20),
             }}
           />
         </GoogleMap>

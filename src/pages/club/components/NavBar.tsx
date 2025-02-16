@@ -77,12 +77,22 @@ const NavBar: React.FC = () => {
       sx={{
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.9)",
+        // backgroundColor: "rgba(0, 0, 0, 0.9)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
+		'&::before': {
+			content: '" "',
+			width: '100%',
+			height: '100%',
+			position: 'absolute',
+			right: '0',
+			top: '0',
+			backdropFilter: 'blur(20px)',
+			background: 'rgba(0,0,0,0.5)',
+		}
       }}
     >
       <IconButton
@@ -144,7 +154,7 @@ const NavBar: React.FC = () => {
         sx={{
           zIndex: 1200,
           background: trigger ? "rgba(255,255,255,0.01)" : "transparent",
-          backdropFilter: trigger ? "blur(20px)" : "none",
+        //   backdropFilter: trigger ? "blur(20px)" : "none",
           boxShadow: trigger ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
           transition: "all 0.3s ease",
           py: "0.5rem",

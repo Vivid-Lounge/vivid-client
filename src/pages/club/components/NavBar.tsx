@@ -164,7 +164,7 @@ const NavBar: React.FC = () => {
 			<AppBar
 				position='fixed'
 				sx={{
-					zIndex: 10,
+					zIndex: 1200,
 					background: trigger
 						? 'rgba(255,255,255,0.01)'
 						: 'transparent',

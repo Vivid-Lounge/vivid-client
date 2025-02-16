@@ -1,5 +1,3 @@
-'use client'
-
 import type React from 'react'
 import { useState, useEffect } from 'react'
 import {
@@ -28,7 +26,7 @@ const NavBar: React.FC = () => {
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 	const location = useLocation()
 	const [notHome, setNotHome] = useState(location.pathname !== '/')
-	const isDesktop = useMediaQuery(theme.breakpoints.down('sm'))
+	// const isDesktop = useMediaQuery(theme.breakpoints.down('sm'))
 	const currentHash = location.hash
 	const [activeHash, setActiveHash] = useState('')
 	useEffect(() => {
@@ -41,7 +39,7 @@ const NavBar: React.FC = () => {
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen)
 	}
-	const [menuItems, setMenuItems] = useState<
+	const [menuItems, ] = useState<
 		{
 			text: string
 			link: string

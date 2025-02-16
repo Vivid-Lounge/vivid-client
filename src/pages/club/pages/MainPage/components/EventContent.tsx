@@ -93,7 +93,7 @@ const EventContent: React.FC<Props> = ({ mainPage = true }) => {
 						willChange: 'transform', // Optimization for animation performance
 					}}
 				>
-					{events.map((event, index) => (
+					{events.map((event) => (
 						<Box
 							key={event.slug}
 							sx={{

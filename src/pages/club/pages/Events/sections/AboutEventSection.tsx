@@ -6,7 +6,6 @@ import { Event } from '../../../../../shared/types'
 import { GradientButton } from '../../../components'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 import { SERVE_IMAGES_URI } from '../../../../../shared/api_routes'
-import { Link } from 'react-router-dom'
 
 interface Props {
 	event: Event

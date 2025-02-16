@@ -2,6 +2,7 @@ import type React from 'react'
 import { Box, Stack, Typography } from '@mui/material'
 import { Mapa, Mail, Phone } from '../../../../../shared/icons'
 import BackgroundDesktop from './../../../../../shared/images/bg-visit-desktop.png'
+import BackgroundMobile from './../../../../../shared/images/bg-visit-mobile.png'
 import FooterSection from './FooterSection'
 
 const VisitSection: React.FC = () => {
@@ -11,12 +12,21 @@ const VisitSection: React.FC = () => {
 				width: '100%',
 				minHeight: '100vh',
 				background: {
-					xs: `linear-gradient(180deg, #0B0B0B 0%, rgba(66, 21, 37, 0.33) 43%, #552138 100%), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RuJ6BAKK6kG2G51wG12JVhIWPG4VeH.png')`,
+					xs: `linear-gradient(180deg, #0B0B0B 0%, rgba(66, 21, 37, 0.33) 43%, #552138 100%), url('${BackgroundMobile}')`,
 					md: `linear-gradient(180deg, #0B0B0B 0%, rgba(66, 21, 37, 0.33) 43%, #552138 100%), url(${BackgroundDesktop})`,
 				},
-				backgroundSize: 'cover',
-				backgroundPosition: 'center',
-				backgroundRepeat: 'no-repeat',
+				backgroundRepeat: {
+					xs: 'no-repeat',
+					md: 'no-repeat'
+				},
+				backgroundSize: {
+					xs: 'cover',
+					md: 'cover'
+				},
+				backgroundPosition: {
+					xs: 'center',
+					md: 'center'
+				},
 				position: 'relative',
 				overflow: 'hidden',
 			}}
@@ -52,6 +62,8 @@ const VisitSection: React.FC = () => {
 							fontSize: { xs: '1.5rem', md: '2rem' },
 							fontWeight: '700',
 							letterSpacing: '0.1em',
+							textShadow: `
+								0px 0px 24.299999237060547px #FF1083`
 						}}
 					>
 						VISIT US
@@ -80,7 +92,18 @@ const VisitSection: React.FC = () => {
 							OUR CLUB
 						</Typography>
 					</Stack>
-
+					<Stack
+						sx={{
+							aspectRatio: '4 / 2.7',
+							// background: 'rgba(255, 0, 0, 0.6)',
+							width: 'clamp(259px, 85vw, 700px)',
+							height: 'auto',
+							display: {
+								xs: 'flex',
+								md: 'none'
+							}
+						}}
+					/>
 					<Box
 						component='button'
 						sx={{

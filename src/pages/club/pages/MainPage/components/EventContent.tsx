@@ -111,7 +111,7 @@ const EventContent: React.FC<Props> = ({ mainPage = true }) => {
 				</Stack>
 			</Box>
 			{mainPage && (
-				<>
+				<Box sx={{paddingBottom: 4}}>
 					<Button onClick={() => setIsModalOpen(true)}>
 						<Typography>view all events</Typography>
 					</Button>
@@ -120,7 +120,7 @@ const EventContent: React.FC<Props> = ({ mainPage = true }) => {
 						onClose={() => setIsModalOpen(false)}
 						events={events}
 					/>
-				</>
+				</Box>
 			)}
 		</Stack>
 	)

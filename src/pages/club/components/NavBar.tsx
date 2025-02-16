@@ -95,13 +95,19 @@ const NavBar: React.FC = () => {
 					position: 'absolute',
 					right: 8,
 					top: 8,
-					fontSize: '1.1rem',
 				}}
 				onClick={handleDrawerToggle}
 			>
 				<CloseIcon />
 			</IconButton>
-			<List sx={{ mt: 5 }}>
+			<List
+				sx={{
+					mt: 5,
+					display: 'flex',
+					flexDirection: 'column',
+					gap: '1rem',
+				}}
+			>
 				{menuItems.map((item, index) => (
 					<motion.div
 						key={item.text}
@@ -131,7 +137,6 @@ const NavBar: React.FC = () => {
 									textTransform: 'uppercase',
 									'& .MuiTypography-root': {
 										fontWeight: 'bold',
-										fontSize: '1.25rem',
 									},
 								}}
 							>
@@ -158,6 +163,7 @@ const NavBar: React.FC = () => {
 			<AppBar
 				position='fixed'
 				sx={{
+					zIndex: 10,
 					background: trigger
 						? 'rgba(255,255,255,0.01)'
 						: 'transparent',
@@ -166,9 +172,9 @@ const NavBar: React.FC = () => {
 						? '0 4px 30px rgba(0, 0, 0, 0.1)'
 						: 'none',
 					transition: 'all 0.3s ease',
-					zIndex: 1,
+
 					py: '0.5rem',
-					fontSize: '1.2rem',
+
 					transform: hideOnScroll
 						? 'translateY(-100%)'
 						: 'translateY(0)',

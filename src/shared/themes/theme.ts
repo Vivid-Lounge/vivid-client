@@ -8,8 +8,7 @@ const theme = createTheme({
 			main: '#FF1083',
 			light: '#FFFFFF',
 			// contrastText: '#FFFFFF',
-            dark: '#0B0B0B'
-			
+			dark: '#0B0B0B',
 		},
 		// background: {
 		// 	default: '#000000', // Black background
@@ -22,17 +21,34 @@ const theme = createTheme({
 	typography: {
 		fontFamily: 'Poppins, sans-serif',
 		allVariants: {
-			fontWeight: 'bold'
-		} // Monospaced font
-		
+			fontWeight: 'bold',
+		}, // Monospaced font
 	},
-	// components: {
-	// 	MuiTypography: {
-	// 		defaultProps: {
-	// 			fontWeight: 600
-	// 		}
-	// 	}
-	// }
+	components: {
+		MuiCssBaseline: {
+			styleOverrides: {
+				'*::-webkit-scrollbar': {
+					width: '8px',
+					height: '8px',
+				},
+				'*::-webkit-scrollbar-track': {
+					background: '#1a1a1a',
+				},
+				'*::-webkit-scrollbar-thumb': {
+					background: '#ff69b4',
+					borderRadius: '4px',
+					'&:hover': {
+						background: '#ff8cc6',
+					},
+				},
+				// For Firefox
+				'*': {
+					scrollbarWidth: 'thin',
+					scrollbarColor: '#ff69b4 #1a1a1a',
+				},
+			},
+		},
+	},
 })
 
 export default theme

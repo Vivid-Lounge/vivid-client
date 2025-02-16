@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Grid2, Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import { DateIcon, InfoIcon } from '../../../../../shared/icons'
 import EventsFeature from '../components/EventsFeature'
 import { Event } from '../../../../../shared/types'

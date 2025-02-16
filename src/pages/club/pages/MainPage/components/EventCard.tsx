@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Stack, Typography } from '@mui/material'
 import { ArrowIcon } from '../../../../../shared/icons'
-import Button from '../../../components/Button'
+// import Button from '../../../components/Button'
 import { Event } from '../../../../../shared/types'
 import { SERVE_IMAGES_URI } from '../../../../../shared/api_routes'
 

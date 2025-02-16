@@ -12,7 +12,6 @@ import {
 import {
 	ChevronLeft,
 	ChevronRight,
-	DoorClosedIcon as CloseIcon,
 } from 'lucide-react'
 import { Event } from '../../../shared/types'
 

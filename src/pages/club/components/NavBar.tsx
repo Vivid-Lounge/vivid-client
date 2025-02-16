@@ -73,6 +73,7 @@ const NavBar: React.FC = () => {
   })
 
   const drawer = (
+	
     <Box
       sx={{
         width: "100%",
@@ -234,7 +235,7 @@ const NavBar: React.FC = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true,
+          keepMounted: false,
         }}
         sx={{
           "& .MuiDrawer-paper": {

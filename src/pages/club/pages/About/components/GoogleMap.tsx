@@ -78,7 +78,7 @@ const GoogleMaps: React.FC<Props> = ({ mapDisplay = false, placeId }) => {
             position={location}
             icon={{
               url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
-              scaledSize: new google.maps.Size(20, 20),
+              scaledSize: new google.maps.Size(50, 50),
             }}
           />
         </GoogleMap>

@@ -18,7 +18,8 @@ const Button: React.FC<Props> = ({children, ...rest}) => {
         color: 'white',
         textTransform: 'uppercase',
         '>*': {
-            zIndex: '2'
+            zIndex: '2',
+            textAlign: 'center'
         },
         "&::before": {
           // content: '"VIEW EVENT"',

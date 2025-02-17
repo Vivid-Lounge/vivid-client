@@ -78,12 +78,13 @@ const ServiceContainer: React.FC<Props> = ({ photo, title, isActive }) => {
 					>
 						{title}
 					</Typography>
-					<Typography color='white' fontWeight={'regular'}>
+					<Typography color='white'  fontWeight={'regular'}>
 						Excepteur sint occaecat cupidatat non proident sunt in
 						culpa qui officia deserunt mollit.
 					</Typography>
 				</Box>
 			</Stack>
+			
 
 			{/* Reflection Effect */}
 			<Stack

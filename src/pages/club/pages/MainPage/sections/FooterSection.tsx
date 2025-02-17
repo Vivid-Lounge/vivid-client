@@ -50,13 +50,13 @@ const FooterSection: React.FC = () => {
 						spacing={3}
 					>
 						<Box sx={{ width: { xs: 'max-content', md: '20%' } }}>
-							<VividLogoIcon
+							{/* <VividLogoIcon
 								sx={{
 									height: '100px',
 									width: '200px',
 									fill: 'white',
 								}}
-							/>
+							/> */}
 						</Box>
 
 						<Stack
@@ -119,7 +119,7 @@ const FooterSection: React.FC = () => {
 									justifyContent: 'flex-end',
 								}}
 							>
-								<Box
+								{/* <Box
 									component='button'
 									sx={{
 										background: 'transparent',
@@ -144,7 +144,7 @@ const FooterSection: React.FC = () => {
 									GET IN
 									<br />
 									TOUCH
-								</Box>
+								</Box> */}
 							</Box>
 						)}
 					</Stack>

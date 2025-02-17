@@ -50,7 +50,7 @@ const EventPage: React.FC = () => {
 				justifyContent: 'center',
 				alignItems: 'center',
 				// background: 'red',
-				background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("${SERVE_IMAGES_URI}${event.coverImage}")`,
+				background: `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url("${SERVE_IMAGES_URI}${event.coverImage}")`,
 				backgroundPosition: 'center',
 				backgroundSize: 'cover',
 				padding: {

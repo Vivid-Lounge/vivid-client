@@ -4,6 +4,7 @@ import {
   Typography,
   Dialog,
   DialogTitle,
+  Box,
   DialogContent,
 } from "@mui/material";
 import { TestimonialType } from "../../../../../shared/types";
@@ -38,6 +39,7 @@ const Testimonial: React.FC<Props> = ({
           sx={{
             color: "#ccc",
             fontWeight: "regular",
+            textAlign: 'justify'
           }}
         >
           {isLongText
@@ -73,7 +75,6 @@ const Testimonial: React.FC<Props> = ({
         </Typography>
       </Stack>
 
-      {/* Modal */}
       <Dialog open={open} onClick={handleRead} fullWidth maxWidth="sm">
         <DialogTitle
           sx={{
@@ -89,22 +90,35 @@ const Testimonial: React.FC<Props> = ({
           {testimonial.artist}
         </DialogTitle>
         <DialogContent>
-          <Typography sx={{ color: "#ccc" }}>
+          <Typography sx={{ color: "#ccc", fontWeight: '400', textAlign: 'justify' }}>
             {testimonial.testimonialText}
           </Typography>
           <Typography
-            sx={{
-              fontSize: "1rem",
-              color: "black",
-              mt: 2,
-              textTransform: "uppercase",
-              padding: "4px",
-              background: "#FF1083",
-              width: "max-content",
-            }}
-          >
-            {testimonial.aboutArtist}
-          </Typography>
+  sx={{
+    position: 'relative',
+    zIndex: 1, 
+    fontSize: '1rem',
+    mt: 3,
+    color: 'white',
+    textTransform: 'uppercase',
+    padding: '4px',
+    width: 'max-content',
+  }}
+>
+  {testimonial.aboutArtist}
+
+  <Box
+    sx={{
+      position: 'absolute',
+      inset: 0,
+      margin: '-3px',
+      backgroundColor: 'rgba(255,16,131,0.5)',
+      filter: 'blur(4px)',
+      zIndex: -1,
+      borderRadius: '8px', 
+    }}
+  />
+</Typography>
         </DialogContent>
       </Dialog>
     </>

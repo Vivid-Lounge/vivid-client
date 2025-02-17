@@ -170,7 +170,7 @@ const EventContent: React.FC<Props> = ({ mainPage = true }) => {
 							<Box
 								key={event.slug}
 								sx={{
-									flexShrink: 0,
+									flex: "0 0 auto",
 									width: cardWidth,
 									p: 1,
 									aspectRatio: '3 / 4',

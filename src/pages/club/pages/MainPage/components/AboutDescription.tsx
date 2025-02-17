@@ -53,8 +53,9 @@ const AboutDescription: React.FC = () => {
 						padding: '16px',
 						backgroundColor: 'rgb(46, 46, 46)',
 						color: 'white',
+						textAlign: 'justify',
+						fontWeight: '300',
 						opacity: isVisible ? 1 : 0,
-
 						transform: isVisible
 							? 'translate(50px,25px)'
 							: 'translateX(50px)',
@@ -64,10 +65,6 @@ const AboutDescription: React.FC = () => {
 							xs: 'none',
 							md: 'flex'
 						}
-						// marginTop: {
-						// 	xs: '10rem',
-						// 	md: '0'
-						// }
 					}}
 				>
 					Suntem locul unde muzica de calitate și designul inovativ se
@@ -82,17 +79,14 @@ const AboutDescription: React.FC = () => {
 						padding: '16px',
 						backgroundColor: 'rgb(46, 46, 46)',
 						color: 'white',
+						textAlign: 'justify',
+						fontWeight: '300',
 						opacity: isVisible ? 1 : 0,
-
 						transform: isVisible
 							? 'translate(0, 0)'
 							: 'translateX(50px)',
 						transition: 'all 1s ease-out',
 						transitionDelay: '0.2s',
-						// marginTop: {
-						// 	xs: '10rem',
-						// 	md: '0'
-						// }
 						width: '100%',
 						display: {
 							xs: 'flex',

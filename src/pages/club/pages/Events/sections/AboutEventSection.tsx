@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography, Box } from '@mui/material'
 import { DateIcon, InfoIcon } from '../../../../../shared/icons'
 import EventsFeature from '../components/EventsFeature'
 import { Event } from '../../../../../shared/types'
@@ -40,6 +40,7 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 						md: '100%',
 					},
 					background: `url("${SERVE_IMAGES_URI}${event.posterImage}")`,
+					boxShadow: '0px 0px 50px 0px rgba(0,0,0,0.75)',
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					position: {
@@ -154,14 +155,31 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 					>
 						{event.title}
 					</Typography>
-					<Typography
-						sx={{
-							color: 'white',
-							fontSize: 'clamp(16px, 2vw, 18px)',
-						}}
-					>
-						{event.description}
-					</Typography>
+					<Box sx={{ position: 'relative' }}>
+						<Box
+							sx={{
+								position: 'absolute',
+								top: 0,
+								right: 0,
+								bottom: 0,
+								left: 0,
+								backgroundColor: 'rgba(0,0,0,.8)',
+								filter: 'blur(2px)',
+								zIndex: 0
+							}}
+						/>
+						<Box sx={{ position: 'relative', zIndex: 1, padding: '16px' }}>
+							<Typography
+								sx={{
+									color: 'white',
+									fontSize: 'clamp(16px, 2vw, 18px)',
+									fontWeight: 200
+								}}
+							>
+								{event.description}
+							</Typography>
+						</Box>
+					</Box>
 				</Stack>
 				<Stack
 					sx={{

@@ -91,6 +91,8 @@ const MinimalistPhoto: React.FC = () => {
           sx={{
             color: "#ccc",
             width: "100%",
+            fontWeight: '500',
+            textAlign: 'justify',
           }}
         >
           Deschis în 2024 în vibrantul campus studențesc Tudor Vladimirescu din

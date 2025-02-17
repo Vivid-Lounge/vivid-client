@@ -3,9 +3,7 @@ import { Grid2, Typography, Box, Link } from '@mui/material'
 import { VividLogoIcon } from '../../../../../shared/icons'
 import Button from '../../../components/Button'
 import videohero from '../../../../../shared/videohero.mp4'
-import { Navigate, useNavigate } from 'react-router-dom'
 const HeroSection: React.FC = () => {
-	const navigate = useNavigate()
 	return (
 		<Grid2
 			container

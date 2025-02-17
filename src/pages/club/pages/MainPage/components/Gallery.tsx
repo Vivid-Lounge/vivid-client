@@ -1,13 +1,14 @@
-import React from 'react'
+import type React from 'react'
 import { Stack, Box } from '@mui/material'
-import { Image } from '../../../../../shared/types/ImageType'
+import type { Image } from '../../../../../shared/types/ImageType'
 import { SERVE_IMAGES_URI } from '../../../../../shared/api_routes'
 
 interface Props {
 	images: Image[]
+	onImageClick?: (index: number) => void
 }
 
-const Gallery: React.FC<Props> = ({ images }) => {
+const Gallery: React.FC<Props> = ({ images, onImageClick }) => {
 	// Chunk the images in groups of 3
 	function chunkArray<T>(arr: T[], size: number): T[][] {
 		return arr.reduce((acc, _, i) => {
@@ -59,20 +60,58 @@ const Gallery: React.FC<Props> = ({ images }) => {
 						{isEvenRow ? (
 							/* Even row: big image on left, two small images stacked on right */
 							<>
-								<Box flex={1} sx={bigImageSx(img1)} />
+								<Box
+									flex={1}
+									sx={bigImageSx(img1)}
+									onClick={() =>
+										onImageClick &&
+										onImageClick(rowIndex * 3)
+									}
+								/>
 								<Stack flex={1} direction='column' spacing={4}>
-									<Box sx={smallImageSx(img2)} />
-									<Box sx={smallImageSx(img3)} />
+									<Box
+										sx={smallImageSx(img2)}
+										onClick={() =>
+											onImageClick &&
+											onImageClick(rowIndex * 3 + 1)
+										}
+									/>
+									<Box
+										sx={smallImageSx(img3)}
+										onClick={() =>
+											onImageClick &&
+											onImageClick(rowIndex * 3 + 2)
+										}
+									/>
 								</Stack>
 							</>
 						) : (
 							/* Odd row: two small images on left, big image on right */
 							<>
 								<Stack flex={1} direction='column' spacing={4}>
-									<Box sx={smallImageSx(img1)} />
-									<Box sx={smallImageSx(img2)} />
+									<Box
+										sx={smallImageSx(img1)}
+										onClick={() =>
+											onImageClick &&
+											onImageClick(rowIndex * 3)
+										}
+									/>
+									<Box
+										sx={smallImageSx(img2)}
+										onClick={() =>
+											onImageClick &&
+											onImageClick(rowIndex * 3 + 1)
+										}
+									/>
 								</Stack>
-								<Box flex={1} sx={bigImageSx(img3)} />
+								<Box
+									flex={1}
+									sx={bigImageSx(img3)}
+									onClick={() =>
+										onImageClick &&
+										onImageClick(rowIndex * 3 + 2)
+									}
+								/>
 							</>
 						)}
 					</Stack>

@@ -53,7 +53,7 @@ const AllEventsModal: React.FC<AllEventsModalProps> = ({
 					width: '90%',
 					maxWidth: '1200px',
 					minHeight: '80vh',
-					maxHeight: '90vh',
+					maxHeight: '90dvh',
 					backdropFilter: 'blur(5px)',
 					backgroundColor: 'rgba(82, 66, 66, 0.5)',
 					borderRadius: 2,

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 // import { events } from './events'
 import { Grid2 } from '@mui/material'
 // import { EventHeroSection } from '../sections'
@@ -13,6 +13,7 @@ import {
 const EventPage: React.FC = () => {
 	const { slug } = useParams<{ slug: string }>()
 	console.log(slug)
+	const navigate = useNavigate()
 	const [event, setEvent] = React.useState<Event>({} as Event)
 	const retrieveEvent = async () => {
 		const response = await fetch(API_URI + api.getEvent.route + `${slug}`, {
@@ -22,10 +23,13 @@ const EventPage: React.FC = () => {
 			},
 		})
 		if (response.status === 200) {
-			const data = await response.json()
+			const data = (await response.json()) as Event
 			setEvent(data)
 		} else {
-			setEvent({} as Event)
+			{
+				navigate('/', { replace: true })
+				setEvent({} as Event)
+			}
 		}
 	}
 	useEffect(() => {
@@ -51,8 +55,8 @@ const EventPage: React.FC = () => {
 				backgroundSize: 'cover',
 				padding: {
 					xs: '16px',
-					md: '32px 0px'
-				}
+					md: '32px 0px',
+				},
 			}}
 		>
 			{/* <Box
@@ -71,7 +75,7 @@ const EventPage: React.FC = () => {
 			></Box> */}
 			<Grid2
 				container
-				size={{xs: 12, md: 10}}
+				size={{ xs: 12, md: 10 }}
 				sx={{
 					// width: '100%',
 					height: 'calc(100% - 60px)',
@@ -80,7 +84,7 @@ const EventPage: React.FC = () => {
 					justifyContent: 'center',
 					flexDirection: {
 						xs: 'column',
-						md: 'row'
+						md: 'row',
 					},
 					alignItems: 'center',
 					// background: 'red',

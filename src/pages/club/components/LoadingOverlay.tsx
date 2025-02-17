@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import { BarLoader } from 'react-spinners'
 import { VividLogoIcon } from '../../../shared/icons'
+import zIndex from '@mui/material/styles/zIndex'
 
 type Props = {
 	loading: boolean
@@ -41,7 +42,7 @@ const LoadingOverlay: FC<Props> = ({ loading }) => {
 					position: 'absolute',
 					left: '50%',
 					top: '50%',
-					zIndex: '101',
+					zIndex: 10,
 					opacity: animate ? 0 : 1,
 					transition: 'opacity 0.35s ease-in-out',
 					transform: 'translate(-50%, -50%)',

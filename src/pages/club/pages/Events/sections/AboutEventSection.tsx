@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography, useMediaQuery } from '@mui/material'
 import { DateIcon, InfoIcon } from '../../../../../shared/icons'
 import EventsFeature from '../components/EventsFeature'
 import { Event } from '../../../../../shared/types'
 import { GradientButton } from '../../../components'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 import { SERVE_IMAGES_URI } from '../../../../../shared/api_routes'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 interface Props {
 	event: Event
@@ -18,7 +18,13 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 	const handleOpen = () => {
 		setIsOpen(!isOpen)
 	}
-
+	const isMobile = useMediaQuery('(max-width: 600px)')
+	console.log(event)
+	const navigate = useNavigate()
+	if (!event) {
+		navigate('/')
+		return null
+	}
 	return (
 		<>
 			<Stack
@@ -48,7 +54,7 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 						position: 'absolute',
 						background: 'rgba(0,0,0,0.6)',
 						aspectRatio: '1 / 1',
-						width: '56px',
+						width: '52px',
 						height: 'auto',
 						bottom: '16px',
 						right: '16px',
@@ -107,7 +113,7 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 						top: '0',
 						left: '0',
 						overflow: 'hidden',
-						transition: 'all 0.2s ease-in-out',
+						transition: 'all 0.4s ease-in-out',
 						transform: {
 							// xs: isOpen ? 'translate(0, 0)' : 'translate(0, -500%)'
 						},
@@ -206,130 +212,43 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 							Buy Tickets
 						</GradientButton>
 					</Link>
+					{isOpen && (
+						<Stack
+							sx={{
+								position: 'absolute',
+								background: 'rgba(0,0,0,0.6)',
+								aspectRatio: '1 / 1',
+								width: '52px',
+								height: 'auto',
+								bottom: '0',
+								right: 0,
+
+								borderRadius: '50%',
+								display: {
+									xs: 'flex',
+									sm: 'none',
+								},
+								cursor: 'pointer',
+								zIndex: '5',
+								overflow: 'hidden',
+								alignItems: 'center',
+								justifyContent: 'center',
+								border: '2px solid #ff1083',
+							}}
+							onClick={handleOpen}
+						>
+							<InfoIcon
+								sx={{
+									fill: 'white',
+									width: '16px',
+									height: 'auto',
+								}}
+							/>
+						</Stack>
+					)}
 				</Stack>
 			</Stack>
 		</>
-		// <Grid2
-		// 	container
-		// 	sx={{
-		// 		flexDirection: 'row',
-		// 		width: '100%',
-		// 		height: '100%',
-		// 		justifyContent: 'center',
-		// 		alignItems: 'center',
-		// 	}}
-		// >
-		// 	<Grid2
-		// 		container
-		// 		size={{ xs: 12, sm: 6 }}
-		// 		sx={{
-		// 			width: '100%',
-		// 			height: '100%',
-		// 			flexDirection: 'column',
-		// 		}}
-		// 	>
-		// 		<Box
-		// 			id='poster-image'
-		// 			sx={{
-		// 				background: `url("${SERVE_IMAGES_URI}${event.posterImage}")`,
-		// 				backgroundSize: 'cover',
-		// 				backgroundPosition: 'center',
-		// 				width: '100%',
-		// 				height: '100%',
-		// 				minWidth: '50%',
-		// 				maxWidth: '60%',
-
-		// 				position: 'relative',
-		// 			}}
-		// 		></Box>
-		// 	</Grid2>
-		// 	<Grid2
-		// 		container
-		// 		size={{ xs: 12, sm: 4 }}
-		// 		sx={{
-		// 			height: '100%',
-		// 			alignItems: 'space-between',
-		// 			flexDirection: 'row',
-		// 		}}
-		// 	>
-		// 		<Grid2
-		// 			size={{ xs: 6 }}
-		// 			sx={{
-		// 				width: '100%',
-		// 			}}
-		// 		>
-		// 			<Stack
-		// 				sx={{
-		// 					width: '100%',
-		// 					textWrap: 'wrap',
-		// 					flexWrap: 'wrap',
-		// 					lineBreak: 'anywhere',
-		// 					height: '100%',
-		// 				}}
-		// 			>
-		// 				<Typography
-		// 					variant={'h2'}
-		// 					sx={{
-		// 						color: 'white',
-		// 						mb: 2,
-		// 					}}
-		// 				>
-		// 					{event.title}
-		// 				</Typography>
-		// 				<Typography
-		// 					sx={{
-		// 						color: 'white',
-		// 						fontSize: 'clamp(16px, 2vw, 18px)',
-		// 					}}
-		// 				>
-		// 					{event.description}
-		// 				</Typography>
-		// 			</Stack>
-		// 		</Grid2>
-		// 		<Grid2
-		// 			size={{ xs: 6 }}
-		// 			sx={{
-		// 				// background: '#1C1C1C',
-		// 				mt: 'auto',
-		// 				padding: '1rem',
-		// 				gap: '2rem',
-		// 				width: '100%',
-		// 			}}
-		// 		>
-		// 			<Typography
-		// 				color='white'
-		// 				textTransform={'uppercase'}
-		// 				fontSize={'1.25rem'}
-		// 				sx={{
-		// 					mb: 3,
-		// 				}}
-		// 			>
-		// 				About event
-		// 			</Typography>
-		// 			<Stack
-		// 				sx={{
-		// 					gap: '1rem',
-		// 				}}
-		// 			>
-		// 				<EventsFeature
-		// 					featureIcon={<DateIcon />}
-		// 					featureTitle='date'
-		// 					featureDescription={new Date(
-		// 						event.date ?? ''
-		// 					).toDateString()}
-		// 				/>
-		// 				<EventsFeature
-		// 					featureIcon={<LocalPhoneIcon />}
-		// 					featureTitle='RSVP'
-		// 					featureDescription={event.phone}
-		// 				/>
-		// 			</Stack>
-		// 			<GradientButton marginTop={'2rem'}>
-		// 				Buy Tickets
-		// 			</GradientButton>
-		// 		</Grid2>
-		// 	</Grid2>
-		// </Grid2>
 	)
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid2, Stack, Box, Typography } from '@mui/material'
+import { Grid2, Stack, Typography } from '@mui/material'
 import ServicesTitleIcon from '../../../../../shared/icons/ServicesTitleIcon'
 import ServiceContainer from '../components/ServiceContainer'
 import bar from '../../../../../shared/images/bar.jpg'
@@ -66,7 +66,6 @@ const ServiceSection: React.FC = () => {
 				/>
 				<ServiceContainer title='DANCE FLOOR' photo={dancefloor} />
 				<ServiceContainer title='VIP ZONE' photo={vip} />
-				
 			</Grid2>
 		</Grid2>
 	)

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box, Stack, Typography, useMediaQuery } from '@mui/material'
-import { VividLogoIcon } from '../../../../../shared/icons'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import { useTheme } from '@mui/material'

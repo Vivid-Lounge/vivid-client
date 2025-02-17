@@ -60,7 +60,7 @@ const CarouselControls: React.FC<Props> = ({
 	}, [containerRef])
 
 	return (
-		<Stack direction='row' spacing={2} alignItems='center' sx={{ mb: 2 }}>
+		<Stack direction='row' spacing={2} alignItems='center'>
 			<IconButton
 				onClick={onPrev}
 				disabled={isStart}

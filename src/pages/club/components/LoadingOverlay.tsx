@@ -2,7 +2,6 @@ import { FC, useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import { BarLoader } from 'react-spinners'
 import { VividLogoIcon } from '../../../shared/icons'
-import zIndex from '@mui/material/styles/zIndex'
 
 type Props = {
 	loading: boolean

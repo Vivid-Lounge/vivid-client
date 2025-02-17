@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Stack, Typography, useMediaQuery } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import { DateIcon, InfoIcon } from '../../../../../shared/icons'
 import EventsFeature from '../components/EventsFeature'
 import { Event } from '../../../../../shared/types'
@@ -18,8 +18,7 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 	const handleOpen = () => {
 		setIsOpen(!isOpen)
 	}
-	const isMobile = useMediaQuery('(max-width: 600px)')
-	console.log(event)
+
 	const navigate = useNavigate()
 	if (!event) {
 		navigate('/')

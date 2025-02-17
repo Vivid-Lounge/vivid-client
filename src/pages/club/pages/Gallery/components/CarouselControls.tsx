@@ -2,7 +2,7 @@
 
 import type React from 'react'
 import { useEffect, useState, useRef } from 'react'
-import { Stack, IconButton, Box } from '@mui/material'
+import { Stack, IconButton } from '@mui/material'
 import { ChevronLeft, ChevronRight } from '@mui/icons-material'
 
 interface Props {
@@ -92,7 +92,7 @@ const CarouselControls: React.FC<Props> = ({
 					disabled={isStart}
 					sx={{
 						backgroundColor: 'rgba(255, 255, 255, 0.13)',
-						color: '#FF1083',
+						color: progress ? '#FF1083' : '#FF1083',
 						fill: '#FF1083',
 						stroke: '#FF1083',
 						opacity: isStart ? 0.5 : 1,

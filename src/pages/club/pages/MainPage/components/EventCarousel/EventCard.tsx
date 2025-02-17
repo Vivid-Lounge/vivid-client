@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles'
 import type { Event } from '../../../../../../shared/types'
 import { SERVE_IMAGES_URI } from '../../../../../../shared/api_routes'
 
-const StyledCard = styled(Box)(({ theme }) => ({
+const StyledCard = styled(Box)(() => ({
 	position: 'relative',
 	borderRadius: '12px',
 	overflow: 'hidden',

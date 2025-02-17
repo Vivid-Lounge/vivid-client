@@ -215,13 +215,22 @@ const NavBar: React.FC = () => {
 									onClick={handleBackClick}
 									sx={{
 										color: 'white',
+
+										transform: 'rotate(90deg)',
 										'&:hover': {
 											backgroundColor:
 												'rgba(255, 255, 255, 0.1)',
 										},
 									}}
 								>
-									<ArrowIcon />
+									<ArrowIcon
+										sx={{
+											width: '24px',
+											height: '24px',
+											color: 'white',
+											fill: 'white',
+										}}
+									/>
 								</IconButton>
 							</motion.div>
 						)}

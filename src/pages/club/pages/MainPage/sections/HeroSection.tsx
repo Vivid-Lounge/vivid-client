@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid2, Typography, Box } from '@mui/material'
+import { Grid2, Typography, Box, Link } from '@mui/material'
 import { VividLogoIcon } from '../../../../../shared/icons'
 import Button from '../../../components/Button'
 import videohero from '../../../../../shared/videohero.mp4'
@@ -83,9 +83,18 @@ const HeroSection: React.FC = () => {
 						fill: 'white',
 					}}
 				/>
-				<Button>
-					<Typography>restaurant</Typography>
-				</Button>
+				<Link
+					sx={{
+						textDecoration: 'none',
+						color: 'white',
+					}}
+					href='https://restaurant.lsaciasi.ro/'
+					target='_blank'
+				>
+					<Button>
+						<Typography>restaurant</Typography>
+					</Button>
+				</Link>
 			</Grid2>
 		</Grid2>
 	)

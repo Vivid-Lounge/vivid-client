@@ -113,7 +113,7 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 						top: '0',
 						left: '0',
 						overflow: 'hidden',
-						transition: 'all 0.4s ease-in-out',
+						transition: 'all 0.4s easeIn',
 						transform: {
 							// xs: isOpen ? 'translate(0, 0)' : 'translate(0, -500%)'
 						},
@@ -165,15 +165,24 @@ const AboutEventSection: React.FC<Props> = ({ event }) => {
 								left: 0,
 								backgroundColor: 'rgba(0,0,0,.8)',
 								filter: 'blur(2px)',
-								zIndex: 0
+								zIndex: 0,
 							}}
 						/>
-						<Box sx={{ position: 'relative', zIndex: 1, padding: '16px' }}>
+						<Box
+							sx={{
+								position: 'relative',
+								zIndex: 1,
+
+								maxHeight: '300px',
+								overflow: 'auto',
+							}}
+						>
 							<Typography
+								className='text'
 								sx={{
 									color: 'white',
 									fontSize: 'clamp(16px, 2vw, 18px)',
-									fontWeight: 200
+									fontWeight: 200,
 								}}
 							>
 								{event.description}

@@ -138,8 +138,8 @@ const EventCard: React.FC<Props> = ({ event, onPrevClick, onNextClick }) => {
 								sm: 'clamp(32px, 5vw, 48px)',
 								fontWeight: '300',
 								marginLeft: 10,
-								textShadow: '0px 0px 50px rgba(0, 0, 50, 1), 0px 0px 50px rgba(0, 0, 50, 1)'
-
+								textShadow:
+									'0px 0px 50px rgba(0, 0, 50, 1), 0px 0px 50px rgba(0, 0, 50, 1)',
 							},
 						}}
 					>
@@ -180,7 +180,7 @@ const EventCard: React.FC<Props> = ({ event, onPrevClick, onNextClick }) => {
 					},
 				}}
 			/>
-		</Stack >
+		</Stack>
 	)
 }
 

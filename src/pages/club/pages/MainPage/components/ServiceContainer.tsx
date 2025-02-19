@@ -9,7 +9,7 @@ type Props = {
   align?: 'left' | 'right'
 }
 
-const ServiceContainer: React.FC<Props> = ({ photo, title, isActive, align }) => {
+const ServiceContainer: React.FC<Props> = ({ photo, title, align }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isFullyVisible, setIsFullyVisible] = useState(false)
 

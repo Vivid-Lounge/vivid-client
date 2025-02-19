@@ -134,7 +134,7 @@ const EventContent: React.FC<Props> = ({ mainPage = true }) => {
 			sx={{ width: '100%', px: { xs: 2, sm: 4 }, mb: 4 }}
 		>
 			<UpcomingEventsIcon
-				sx={{ width: 'max(24px, 50%)', height: 'auto' }}
+				sx={{ width: {xs: '90%', md: 'max(24px, 50%)'}, height: 'auto' }}
 			/>
 
 			<Stack sx={{ width: '100%', gap: 2 }}>

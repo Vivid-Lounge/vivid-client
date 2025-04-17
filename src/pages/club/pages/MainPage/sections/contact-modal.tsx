@@ -34,10 +34,36 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
       [name]: value,
     }));
   };
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
+    setIsLoading(true);
+    fetch(`http://localhost:4000/api/sendmessage`, {
+      body: JSON.stringify({
+        ...formData,
+        // token: localStorage.getItem("token"),
+        scope: "club",
+      }),
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_CLIENT_CLUB_SECRET}`,
+      },
+    })
+      .then((res) => {
+        console.log(res.json());
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
     console.log("Form submitted:", formData);
     // Reset form
     setFormData({ name: "", email: "", message: "" });
